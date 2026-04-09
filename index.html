@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Modelka - Profesionální fotky oblečení bez ateliéru</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Smooth scroll behavior -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            color: #1f2937;
+            background: #ffffff;
+        }
+        .btn-primary {
+            @apply px-8 py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors;
+        }
+        .btn-secondary {
+            @apply px-8 py-3 border-2 border-black text-black font-semibold rounded-lg hover:bg-black hover:text-white transition-colors;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================
+     HEADER / NAVIGATION
+     ============================================ -->
+<header class="fixed w-full top-0 bg-white shadow-sm z-50">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <div class="text-2xl font-bold text-black">
+            AI Modelka
+        </div>
+        
+        <!-- Nav Links (Desktop) -->
+        <div class="hidden md:flex gap-8">
+            <a href="#home" class="text-gray-600 hover:text-black transition">Domů</a>
+            <a href="#benefits" class="text-gray-600 hover:text-black transition">Výhody</a>
+            <a href="#pricing" class="text-gray-600 hover:text-black transition">Ceník</a>
+            <a href="#contact" class="text-gray-600 hover:text-black transition">Kontakt</a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden text-gray-600 hover:text-black">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <a href="#home" class="block px-6 py-3 text-gray-600 hover:text-black">Domů</a>
+        <a href="#benefits" class="block px-6 py-3 text-gray-600 hover:text-black">Výhody</a>
+        <a href="#pricing" class="block px-6 py-3 text-gray-600 hover:text-black">Ceník</a>
+        <a href="#contact" class="block px-6 py-3 text-gray-600 hover:text-black">Kontakt</a>
+    </div>
+</header>
+
+<!-- ============================================
+     HERO SECTION
+     ============================================ -->
+<section id="home" class="pt-32 pb-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-black leading-tight">
+            Profesionální fotky na modelkách.<br>
+            <span class="text-blue-600">Bez ateliéru, bez modelek.</span>
+        </h1>
+        
+        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Pomocí umělé inteligence a ComfyUI přeměňujeme fotky tvého oblečení na profesionální snímky 
+            na realistických AI modelkách. Ušetři si tisíce na focení a soustřeď se na prodej.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#pricing" class="btn-primary">Chci zkusit zdarma</a>
+            <a href="#pricing" class="btn-secondary">Vidět ceník</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     BEFORE/AFTER SHOWCASE
+     ============================================ -->
+<section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16 text-black">
+            Transformace tvého oblečení
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Before -->
+            <div class="text-center">
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg mb-4">
+                    <img 
+                        src="https://via.placeholder.com/400x500/f3f4f6/9ca3af?text=Tvoje+fotka+tričko+na+ramínku" 
+                        alt="Fotka oblečení na ramínku" 
+                        class="w-full h-auto object-cover"
+                    >
+                </div>
+                <p class="text-lg font-semibold text-gray-700">Tvoje původní fotka</p>
+                <p class="text-sm text-gray-500 mt-2">(tričko na ramínku)</p>
+            </div>
+            
+            <!-- After -->
+            <div class="text-center">
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg mb-4">
+                    <img 
+                        src="https://via.placeholder.com/400x500/f3f4f6/9ca3af?text=AI+Modelka+v+tričku" 
+                        alt="Fotka na AI modelce" 
+                        class="w-full h-auto object-cover"
+                    >
+                </div>
+                <p class="text-lg font-semibold text-blue-600">Po transformaci AI Modelkou</p>
+                <p class="text-sm text-gray-500 mt-2">(profesionální fotografie)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     BENEFITS SECTION
+     ============================================ -->
+<section id="benefits" class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16 text-black">
+            Proč si vybrat AI Modelku
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Benefit 1: Šetří náklady -->
+            <div class="text-center p-8 bg-gray-50 rounded-xl">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-6">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8.16 5a.5.5 0 00-.496.545l.707 4.243-3.076 2.998a.5.5 0 00.372.814h4.143l1.25 4.5a.5.5 0 00.953 0l1.25-4.5h4.143a.5.5 0 00.372-.814l-3.076-2.998.707-4.243A.5.5 0 0011.84 5H8.16z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-black">Šetří náklady</h3>
+                <p class="text-gray-600">
+                    Bez profesionálního fotografa, ateliéru ani modelek. Jedna fotka oblečení = stovky variant.
+                </p>
+            </div>
+            
+            <!-- Benefit 2: Rychlé dodání -->
+            <div class="text-center p-8 bg-gray-50 rounded-xl">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-6">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00-.293.707l-2.828 2.829a1 1 0 101.414 1.414L9 11.414V6z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-black">Rychlé dodání</h3>
+                <p class="text-gray-600">
+                    Fotky máš do 24 hodin. Žádné čekání na fotografa, plánování, úpravu v post-productionu.
+                </p>
+            </div>
+            
+            <!-- Benefit 3: Různé typy modelek -->
+            <div class="text-center p-8 bg-gray-50 rounded-xl">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-6">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M13 7H7v6h6V7z"></path>
+                        <path fill-rule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2V2a1 1 0 112 0v1a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2v1a1 1 0 11-2 0v-1h-2v1a1 1 0 11-2 0v-1a2 2 0 01-2-2v-2H3a1 1 0 110-2h1V9H3a1 1 0 010-2h1V5a2 2 0 012-2v-1z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-black">Různé styly</h3>
+                <p class="text-gray-600">
+                    Vybírej si z více typů AI modelek: různé věkové kategorie, tělesné typy a style.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     PRICING SECTION
+     ============================================ -->
+<section id="pricing" class="py-20 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-4 text-black">
+            Jednoduché ceny
+        </h2>
+        <p class="text-center text-gray-600 mb-16 text-lg">
+            Vyber si plán, který nejlépe vyhovuje tvému e-shopu
+        </p>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Plan: Start -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                <div class="bg-gray-100 px-8 py-8 border-b">
+                    <h3 class="text-2xl font-bold text-black">Start</h3>
+                    <p class="text-gray-600 mt-2">Vyzkoušení služby</p>
+                </div>
+                <div class="px-8 py-8">
+                    <div class="text-4xl font-bold text-black mb-2">
+                        499 Kč
+                    </div>
+                    <p class="text-gray-600 mb-8">jednoho času</p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span class="text-gray-600">5 fotografií oblečení</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span class="text-gray-600">1 typ AI modelky</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span class="text-gray-600">HD rozlišení (1024x1024)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span class="text-gray-600">Dodání do 24 hodin</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn-secondary w-full text-center block">Začít zdarma</a>
+                </div>
+            </div>
+            
+            <!-- Plan: Kolekce (Featured) -->
+            <div class="bg-black text-white rounded-xl shadow-xl overflow-hidden md:-translate-y-4 hover:shadow-2xl transition">
+                <div class="bg-blue-600 px-8 py-8 border-b border-blue-500">
+                    <div class="text-sm font-semibold text-white mb-1">Nejpopulárnější</div>
+                    <h3 class="text-2xl font-bold">Kolekce</h3>
+                    <p class="text-blue-100 mt-2">Pro rostoucí e-shopy</p>
+                </div>
+                <div class="px-8 py-8">
+                    <div class="text-4xl font-bold mb-2">
+                        1 999 Kč
+                    </div>
+                    <p class="text-blue-100 mb-8">měsíčně</p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-3 font-bold">✓</span>
+                            <span class="text-gray-100">50 fotografií za měsíc</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-3 font-bold">✓</span>
+                            <span class="text-gray-100">3 typy AI modelek</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-3 font-bold">✓</span>
+                            <span class="text-gray-100">4K rozlišení (1536x1536)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-3 font-bold">✓</span>
+                            <span class="text-gray-100">Prioritní podpora</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-3 font-bold">✓</span>
+                            <span class="text-gray-100">Vlastní pozadí</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn-primary w-full text-center block">Vyzkoušet</a>
+                </div>
+            </div>
+            
+            <!-- Plan: E-shop -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                <div class="bg-gray-100 px-8 py-8 border-b">
+                    <h3 class="text-2xl font-bold text-black">E-shop</h3>
+                    <p class="text-gray-600 mt-2">Pro velké kolekce</p>
+                </div>
+                <div class="px-8 py-8">
+                    <div class="text-4xl font-bold text-black mb-2">
+                        4 999 Kč
+                    </div>
+                    <p class="text-gray-600 mb-8">měsíčně</p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span class="text-gray-600">200 fotografií za měsíc</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span class="text-gray-600">Všechny AI modelky (10+)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span class="text-gray-600">4K+ rozlišení (2048x2048)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span class="text-gray-600">API integrace do tvého IS</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span class="text-gray-600">Dedikovaná podpora</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn-secondary w-full text-center block">Kontaktuj nás</a>
+                </div>
+            </div>
+        </div>
+        
+        <p class="text-center text-gray-600 mt-12">
+            Všechny plány zahrnují bezplatný trial. Bez skrytých poplatků.
+        </p>
+    </div>
+</section>
+
+<!-- ============================================
+     CONTACT SECTION
+     ============================================ -->
+<section id="contact" class="py-20 px-6 bg-white">
+    <div class="max-w-2xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-4 text-black">
+            Připraveni na transformaci?
+        </h2>
+        <p class="text-center text-gray-600 mb-12 text-lg">
+            Napiš nám a obdržíš individuální nabídku. Nebo rovnou zkus free trial.
+        </p>
+        
+        <form id="contact-form" class="bg-gray-50 rounded-xl p-8 shadow-lg">
+            <div class="mb-6">
+                <label for="name" class="block text-gray-700 font-semibold mb-2">Tvé jméno</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required 
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    placeholder="Petr Novák"
+                >
+            </div>
+            
+            <div class="mb-6">
+                <label for="email" class="block text-gray-700 font-semibold mb-2">E-mail</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required 
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    placeholder="petr@example.com"
+                >
+            </div>
+            
+            <div class="mb-6">
+                <label for="eshop" class="block text-gray-700 font-semibold mb-2">Tvůj e-shop / web</label>
+                <input 
+                    type="url" 
+                    id="eshop" 
+                    name="eshop" 
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    placeholder="https://tvuj-eshop.cz"
+                >
+            </div>
+            
+            <div class="mb-8">
+                <label for="message" class="block text-gray-700 font-semibold mb-2">Tvá zpráva</label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="5" 
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    placeholder="Napiš nám, čím si nejistý nebo co ti chybí..."
+                ></textarea>
+            </div>
+            
+            <button 
+                type="submit" 
+                class="btn-primary w-full text-center"
+            >
+                Odeslat zprávu
+            </button>
+        </form>
+        
+        <!-- Kontaktní info -->
+        <div class="mt-12 text-center">
+            <p class="text-gray-600 mb-4">
+                Nebo nám zapiš přímo:
+            </p>
+            <a href="mailto:info@aimodelka.cz" class="text-blue-600 font-semibold hover:text-blue-700 block mb-4">
+                info@aimodelka.cz
+            </a>
+            <p class="text-sm text-gray-500">
+                Odpovídáme během 2 hodin
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="bg-black text-white py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">AI Modelka</h3>
+                <p class="text-gray-400 text-sm">
+                    Profesionální fotky oblečení generované umělou inteligencí.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Navigace</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="#home" class="hover:text-white transition">Domů</a></li>
+                    <li><a href="#benefits" class="hover:text-white transition">Výhody</a></li>
+                    <li><a href="#pricing" class="hover:text-white transition">Ceník</a></li>
+                    <li><a href="#contact" class="hover:text-white transition">Kontakt</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Sociální sítě</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-white transition">Instagram</a></li>
+                    <li><a href="#" class="hover:text-white transition">LinkedIn</a></li>
+                    <li><a href="#" class="hover:text-white transition">Facebook</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Právní</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-white transition">Podmínky použití</a></li>
+                    <li><a href="#" class="hover:text-white transition">Ochrana GDPR</a></li>
+                    <li><a href="#" class="hover:text-white transition">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+            <p>&copy; 2026 AI Modelka. Všechna práva vyhrazena.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Zavřít mobilní menu při kliknutí na odkaz
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+    
+    // Form submission (jednoduchý handler - v praxi by to bylo API)
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const eshop = document.getElementById('eshop').value;
+            const message = document.getElementById('message').value;
+            
+            // V praxi by zde byla API komunikace s backendem
+            // Nyní jen simulujeme úspěš
+            alert(`Děkujeme, ${name}!\n\nTvá zpráva byla odeslána. Brzy ti odpovíme na ${email}`);
+            contactForm.reset();
+        });
+    }
+</script>
+
+</body>
+</html>
