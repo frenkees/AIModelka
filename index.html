@@ -58,7 +58,22 @@
         }
         body {
             color: #1f2937;
-            background: #ffffff;
+            background: #fafafa;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
         }
         .btn-primary {
             @apply px-8 py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors;
@@ -108,9 +123,10 @@
 <!-- ============================================
      HERO SECTION
      ============================================ -->
-<section id="home" class="pt-32 pb-20 px-6 bg-white">
-    <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-black leading-tight">
+<section id="home" class="pt-32 pb-20 px-6 bg-fafafa relative overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-40" style="background: radial-gradient(circle at top left, rgba(147, 197, 253, 0.3) 0%, rgba(129, 140, 248, 0.3) 50%, transparent 100%); backdrop-filter: blur(48px);"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10 fade-in-up">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-black leading-tight tracking-wide">
             Prodávejte více díky AI modelkám.<br>
             <span class="text-blue-600">Ušetřete 90 % nákladů na focení.</span>
         </h1>
@@ -129,9 +145,9 @@
 <!-- ============================================
      BEFORE/AFTER SHOWCASE
      ============================================ -->
-<section class="py-20 px-6 bg-gray-50">
+<section class="py-20 px-6 bg-fafafa">
     <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-16 text-black">
+        <h2 class="text-4xl font-bold text-center mb-16 text-black tracking-wide">
             Transformace Vašeho oblečení
         </h2>
         
@@ -169,15 +185,15 @@
 <!-- ============================================
      BENEFITS SECTION
      ============================================ -->
-<section id="benefits" class="py-20 px-6 bg-white">
+<section id="benefits" class="py-20 px-6 bg-fafafa">
     <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-16 text-black">
+        <h2 class="text-4xl font-bold text-center mb-16 text-black tracking-wide">
             Proč si vybrat BezModelky.cz
         </h2>
         
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Benefit 1: Šetří náklady -->
-            <div class="text-center p-8 bg-gray-50 rounded-xl">
+            <div class="text-center p-8 bg-white rounded-xl shadow-sm border border-gray-100">
                 <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-6">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M8.16 5a.5.5 0 00-.496.545l.707 4.243-3.076 2.998a.5.5 0 00.372.814h4.143l1.25 4.5a.5.5 0 00.953 0l1.25-4.5h4.143a.5.5 0 00.372-.814l-3.076-2.998.707-4.243A.5.5 0 0011.84 5H8.16z"></path>
@@ -190,7 +206,7 @@
             </div>
             
             <!-- Benefit 2: Rychlé dodání -->
-            <div class="text-center p-8 bg-gray-50 rounded-xl">
+            <div class="text-center p-8 bg-white rounded-xl shadow-sm border border-gray-100">
                 <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-6">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00-.293.707l-2.828 2.829a1 1 0 101.414 1.414L9 11.414V6z" clip-rule="evenodd"></path>
@@ -203,7 +219,7 @@
             </div>
             
             <!-- Benefit 3: Různé typy modelek -->
-            <div class="text-center p-8 bg-gray-50 rounded-xl">
+            <div class="text-center p-8 bg-white rounded-xl shadow-sm border border-gray-100">
                 <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-6">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M13 7H7v6h6V7z"></path>
@@ -222,9 +238,9 @@
 <!-- ============================================
      PRICING SECTION
      ============================================ -->
-<section id="pricing" class="py-20 px-6 bg-gray-50">
+<section id="pricing" class="py-20 px-6 bg-fafafa">
     <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-4 text-black">
+        <h2 class="text-4xl font-bold text-center mb-4 text-black tracking-wide">
             Digitální modely a modelky pro Váš e-shop
         </h2>
         <p class="text-center text-gray-600 mb-16 text-lg">
@@ -233,7 +249,7 @@
         
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Plan: Menší kolekce -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition">
                 <div class="bg-gray-100 px-8 py-8 border-b">
                     <h3 class="text-2xl font-bold text-black">Menší kolekce</h3>
                     <p class="text-gray-600 mt-2">1 až 10 fotografií</p>
@@ -296,7 +312,7 @@
             </div>
             
             <!-- Plan: Katalog / Velkoobchod -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition">
                 <div class="bg-gray-100 px-8 py-8 border-b">
                     <h3 class="text-2xl font-bold text-black">Katalog / Velkoobchod</h3>
                     <p class="text-gray-600 mt-2">51 až 200 fotografií</p>
@@ -326,7 +342,7 @@
                 </div>
             </div>
             <!-- Plan: Individuální plán -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition mt-8 md:mt-0">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition mt-8 md:mt-0">
                 <div class="bg-gray-100 px-8 py-8 border-b">
                     <h3 class="text-2xl font-bold text-black">Individuální plán</h3>
                     <p class="text-gray-600 mt-2">Nad 200 fotografií / Pravidelná spolupráce</p>
@@ -364,59 +380,6 @@
         <p class="text-center text-gray-600 mt-12">
             Všechny plány zahrnují bezplatný trial. Bez skrytých poplatků.
         </p>
-    </div>
-</section>
-
-<!-- ============================================
-     FAQ SECTION
-     ============================================ -->
-<section id="faq" class="py-20 px-6 bg-white">
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-16 text-black">
-            Často kladené dotazy
-        </h2>
-        
-        <div class="space-y-10">
-            <!-- FAQ Item 1 -->
-            <div>
-                <h3 class="text-2xl font-bold text-black mb-4">1. Komu patří autorská práva k fotkám?</h3>
-                <p class="text-gray-600">
-                    Všechny vygenerované fotografie jsou plně ve Vašem vlastnictví. Můžete je používat v e-shopu, na sociálních sítích i v tištěné reklamě bez jakéhokoliv omezení.
-                </p>
-            </div>
-            
-            <!-- FAQ Item 2 -->
-            <div>
-                <h3 class="text-2xl font-bold text-black mb-4">2. Poznají zákazníci, že jde o AI modelku?</h3>
-                <p class="text-gray-600">
-                    Naším cílem je maximální realismus. Díky pokročilým modelům a kontrole kvality jsou výsledky často k nerozeznání od skutečné produktové fotografie v ateliéru.
-                </p>
-            </div>
-            
-            <!-- FAQ Item 3 -->
-            <div>
-                <h3 class="text-2xl font-bold text-black mb-4">3. Co když se mi výsledek nebude líbit?</h3>
-                <p class="text-gray-600">
-                    Vaše spokojenost je pro nás klíčová. Pokud výsledek neodpovídá Vašim představám, nabízíme v rámci spolupráce revizi a úpravu parametrů generování.
-                </p>
-            </div>
-            
-            <!-- FAQ Item 4 -->
-            <div>
-                <h3 class="text-2xl font-bold text-black mb-4">4. Jaké podklady od Vás potřebujeme?</h3>
-                <p class="text-gray-600">
-                    Stačí nám kvalitní fotografie Vašeho oblečení na ramínku nebo na plocho (tzv. flat lay). O zbytek – tedy postavu modelky, styling a vhodné prostředí – se postará naše AI.
-                </p>
-            </div>
-            
-            <!-- FAQ Item 5 -->
-            <div>
-                <h3 class="text-2xl font-bold text-black mb-4">5. Jak rychle dostanu hotové fotky?</h3>
-                <p class="text-gray-600">
-                    Digitální focení je násobně rychlejší než to klasické. Menší kolekce jsme schopni zpracovat v řádu hodin, velké katalogy v rámci několika pracovních dnů.
-                </p>
-            </div>
-        </div>
     </div>
 </section>
 
