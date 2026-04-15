@@ -366,26 +366,30 @@
             <p class="text-gray-600">Napište nám, o co máte zájem, nebo si rovnou domluvte vygenerování jedné fotky na zkoušku zdarma.</p>
         </div>
         
-        <form id="contact-form" class="space-y-6">
+        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+            <input type="hidden" name="access_key" value="6bcb1810-6e47-4daf-9442-bffd1827d46a">
+            
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
                     <label for="name" class="block text-sm font-semibold text-gray-900 mb-2">Jméno</label>
-                    <input type="text" id="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="Jan Novák">
+                    <input type="text" name="Jméno" id="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="Jan Novák">
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">E-mail</label>
-                    <input type="email" id="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="jan@eshop.cz">
+                    <input type="email" name="Email" id="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="jan@eshop.cz">
                 </div>
             </div>
             
             <div>
                 <label for="eshop" class="block text-sm font-semibold text-gray-900 mb-2">Váš e-shop / Web</label>
-                <input type="url" id="eshop" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="https://">
+                <input type="url" name="Web" id="eshop" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="https://">
             </div>
             
             <div>
                 <label for="message" class="block text-sm font-semibold text-gray-900 mb-2">Co potřebujete nafotit?</label>
-                <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="Např.: Připravuji jarní kolekci šatů (asi 30 kusů)..."></textarea>
+                <textarea name="Zpráva" id="message" required rows="4" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="Např.: Připravuji jarní kolekci šatů (asi 30 kusů)..."></textarea>
             </div>
             
             <button type="submit" class="btn-primary w-full text-center py-4 text-lg">Odeslat nezávaznou poptávku</button>
