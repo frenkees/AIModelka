@@ -1,28 +1,24 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="cs" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bez modelky - Profesionální fotky oblečení bez ateliéru</title>
     <meta name="description" content="Profesionální fotky oblečení generované umělou inteligencí. Ušetřete za ateliéry a modelky, zvyšte prodeje s Bez modelky.">
 
-    <!-- Open Graph Tags -->
     <meta property="og:title" content="Bez modelky - Profesionální fotky oblečení bez ateliéru">
     <meta property="og:description" content="Profesionální fotky oblečení generované umělou inteligencí. Ušetřete za ateliéry a modelky, zvyšte prodeje s Bez modelky.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.bezmodelky.cz/">
     <meta property="og:image" content="https://www.bezmodelky.cz/og-image.jpg">
 
-    <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Bez modelky - Profesionální fotky oblečení bez ateliéru">
     <meta name="twitter:description" content="Profesionální fotky oblečení generované umělou inteligencí. Ušetřete za ateliéry a modelky, zvyšte prodeje s Bez modelky.">
     <meta name="twitter:image" content="https://www.bezmodelky.cz/og-image.jpg">
 
-    <!-- Canonical Tag -->
     <link rel="canonical" href="https://www.bezmodelky.cz/">
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,24 +37,35 @@
     }
     </script>
     
-    
-    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            colors: {
+              gray: {
+                50: '#f8fafc',
+                900: '#0f172a',
+              }
+            }
+          }
+        }
+      }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     
-    <!-- Smooth scroll behavior -->
     <style>
-        html {
-            scroll-behavior: smooth;
-            font-family: 'Inter', sans-serif;
-        }
         body {
-            color: #1f2937;
-            background: #fafafa;
+            color: #334155; /* Jemnější šedá pro text, lepší na čtení */
+            background: #ffffff;
         }
 
         @keyframes fadeInUp {
@@ -75,447 +82,359 @@
         .fade-in-up {
             animation: fadeInUp 0.8s ease-out forwards;
         }
+        
         .btn-primary {
-            @apply px-8 py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors;
+            @apply px-8 py-3 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl inline-block;
         }
+        
         .btn-secondary {
-            @apply px-8 py-3 border-2 border-black text-black font-semibold rounded-lg hover:bg-black hover:text-white transition-colors;
+            @apply px-8 py-3 border border-gray-300 text-gray-900 font-semibold rounded-lg hover:bg-gray-50 transition-colors inline-block;
+        }
+
+        /* Jemný mesh gradient pouze pro Hero sekci */
+        .hero-gradient {
+            background: radial-gradient(at 0% 0%, hsla(217,100%,94%,1) 0, transparent 50%), 
+                        radial-gradient(at 50% 0%, hsla(250,100%,96%,1) 0, transparent 50%), 
+                        radial-gradient(at 100% 0%, hsla(217,100%,94%,1) 0, transparent 50%);
         }
     </style>
 </head>
-<body>
+<body class="font-sans antialiased">
 
-<!-- ============================================
-     HEADER / NAVIGATION
-     ============================================ -->
-<header class="fixed w-full top-0 bg-white shadow-sm z-50">
+<header class="fixed w-full top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 transition-all">
     <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <!-- Logo -->
-        <div class="text-2xl font-bold text-black">
-            <img src="logo.png" alt="Logo BezModelky.cz" width="3568" height="1184" class="h-16 w-auto">
+        <a href="#home" class="text-2xl font-bold text-gray-900 font-serif tracking-tight">
+            BezModelky<span class="text-blue-600">.cz</span>
+        </a>
+        
+        <div class="hidden md:flex gap-8 items-center font-medium">
+            <a href="#how-it-works" class="text-gray-600 hover:text-gray-900 transition">Jak to funguje</a>
+            <a href="#showcase" class="text-gray-600 hover:text-gray-900 transition">Ukázky</a>
+            <a href="#pricing" class="text-gray-600 hover:text-gray-900 transition">Ceník</a>
+            <a href="#faq" class="text-gray-600 hover:text-gray-900 transition">FAQ</a>
+            <a href="#contact" class="px-5 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition text-sm">Kontakt</a>
         </div>
         
-        <!-- Nav Links (Desktop) -->
-        <div class="hidden md:flex gap-8">
-            <a href="#home" class="text-gray-600 hover:text-black transition">Domů</a>
-            <a href="#benefits" class="text-gray-600 hover:text-black transition">Výhody</a>
-            <a href="#pricing" class="text-gray-600 hover:text-black transition">Ceník</a>
-            <a href="#contact" class="text-gray-600 hover:text-black transition">Kontakt</a>
-        </div>
-        
-        <!-- Mobile Menu Button -->
-        <button id="menu-btn" class="md:hidden text-gray-600 hover:text-black">
+        <button id="menu-btn" class="md:hidden text-gray-600 hover:text-gray-900">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
         </button>
     </nav>
     
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-        <a href="#home" class="block px-6 py-3 text-gray-600 hover:text-black">Domů</a>
-        <a href="#benefits" class="block px-6 py-3 text-gray-600 hover:text-black">Výhody</a>
-        <a href="#pricing" class="block px-6 py-3 text-gray-600 hover:text-black">Ceník</a>
-        <a href="#contact" class="block px-6 py-3 text-gray-600 hover:text-black">Kontakt</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
+        <a href="#how-it-works" class="block px-6 py-4 text-gray-600 hover:bg-gray-50 hover:text-gray-900 border-b border-gray-50">Jak to funguje</a>
+        <a href="#showcase" class="block px-6 py-4 text-gray-600 hover:bg-gray-50 hover:text-gray-900 border-b border-gray-50">Ukázky</a>
+        <a href="#pricing" class="block px-6 py-4 text-gray-600 hover:bg-gray-50 hover:text-gray-900 border-b border-gray-50">Ceník</a>
+        <a href="#faq" class="block px-6 py-4 text-gray-600 hover:bg-gray-50 hover:text-gray-900 border-b border-gray-50">FAQ</a>
+        <a href="#contact" class="block px-6 py-4 font-semibold text-blue-600 hover:bg-gray-50">Kontakt</a>
     </div>
 </header>
 
-<!-- ============================================
-     HERO SECTION
-     ============================================ -->
-<section id="home" class="pt-32 pb-20 px-6 bg-fafafa relative overflow-hidden">
-    <div class="absolute inset-0 z-0 opacity-40" style="background: radial-gradient(circle at top left, rgba(147, 197, 253, 0.3) 0%, rgba(129, 140, 248, 0.3) 50%, transparent 100%); backdrop-filter: blur(48px);"></div>
+<section id="home" class="pt-32 pb-20 px-6 hero-gradient relative overflow-hidden min-h-[90vh] flex flex-col justify-center">
     <div class="max-w-4xl mx-auto text-center relative z-10 fade-in-up">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-black leading-tight tracking-wide">
-            Prodávejte více díky AI modelkám.<br>
-            <span class="text-blue-600">Ušetřete 90 % nákladů na focení.</span>
+        <div class="inline-block px-4 py-1 mb-6 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm tracking-wide">
+            Revoluce ve fashion e-commerce
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 text-gray-900 leading-tight font-serif">
+            Prodávejte více díky <br><span class="text-blue-600 italic">AI modelkám.</span>
         </h1>
         
-        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Pomocí pokročilé umělé inteligence oblékneme Vaše produkty na realistické modelky. Ušetříte desítky tisíc za fotografy a ateliéry a zvýšíte své prodeje.
+        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Vyfotíte produkt na ramínku, my jej pomocí AI oblékneme na realistické modelky. Ušetřete 90 % nákladů na ateliéry a zrychlete nasazení kolekcí.
         </p>
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#pricing" class="btn-primary">Vyzkoušet zdarma</a>
-            <a href="#pricing" class="btn-secondary">Zobrazit ceník</a>
+            <a href="#how-it-works" class="btn-secondary">Zjistit více</a>
         </div>
     </div>
 </section>
 
-<!-- ============================================
-     BEFORE/AFTER SHOWCASE
-     ============================================ -->
-<section class="py-20 px-6 bg-fafafa">
+<section class="py-10 border-y border-gray-100 bg-white">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="text-sm text-gray-400 font-semibold uppercase tracking-wider mb-6">Důvěřují nám e-shopy a značky</p>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale">
+            <div class="text-xl font-bold font-serif">E-SHOP.CZ</div>
+            <div class="text-xl font-bold font-serif">FASHION BRAND</div>
+            <div class="text-xl font-bold font-serif">BOUTIQUE</div>
+            <div class="text-xl font-bold font-serif">STREETWEAR</div>
+        </div>
+    </div>
+</section>
+
+<section id="how-it-works" class="py-24 px-6 bg-gray-50">
     <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-16 text-black tracking-wide">
-            Transformace Vašeho oblečení
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-900 font-serif">
+            Tři kroky k dokonalé fotografii
         </h2>
         
-        <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="relative text-center">
+                <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center text-2xl font-bold text-blue-600 mx-auto mb-6 shadow-sm">1</div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Vyfotíte produkt</h3>
+                <p class="text-gray-600">Stačí obyčejná fotka oblečení na ramínku, figuríně nebo rozložená naplocho (flatlay).</p>
+            </div>
+            
+            <div class="relative text-center">
+                <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center text-2xl font-bold text-blue-600 mx-auto mb-6 shadow-sm">2</div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Zadáte parametry</h3>
+                <p class="text-gray-600">Vyberete si typ modelky (věk, etnikum, postava) a prostředí, které k vaší značce sedí.</p>
+            </div>
+            
+            <div class="relative text-center">
+                <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 shadow-md">3</div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Do 24h prodáváte</h3>
+                <p class="text-gray-600">Naše AI oblékne produkt na modelku se zachováním střihu a materiálů. Fotky jsou připravené pro web.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="showcase" class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16 text-gray-900 font-serif">
+            Magie v praxi
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
             <div class="text-center">
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg mb-4 max-w-md mx-auto aspect-[3/4]">
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm mb-4 max-w-sm mx-auto aspect-[3/4] border border-gray-200">
                     <img 
                         src="dlouha-letni-sukne-pastelove-modra-peca_2.jpg" 
-                        alt="Vaše původní fotografie na ramínku" 
+                        alt="Původní fotografie na ramínku" 
                         class="w-full h-full object-cover"
                     >
                 </div>
-                <p class="text-lg font-semibold text-gray-700">Vaše původní fotografie</p>
-                <p class="text-sm text-gray-500 mt-2">(sukně na ramínku)</p>
+                <p class="text-lg font-semibold text-gray-500">Původní snímek od klienta</p>
             </div>
             
             <div class="text-center">
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg mb-4 max-w-md mx-auto aspect-[3/4]">
+                <div class="bg-white rounded-xl overflow-hidden shadow-xl mb-4 max-w-sm mx-auto aspect-[3/4] ring-4 ring-blue-50/50">
                     <img 
                         src="ComfyUI_00141_.png" 
-                        alt="Produktová fotografie sukně na AI modelce - výsledek Bez modelky" 
+                        alt="Výsledek Bez modelky" 
                         class="w-full h-full object-cover"
                         loading="lazy"
                     >
                 </div>
-                <p class="text-lg font-semibold text-blue-600">Po transformaci BezModelky.cz</p>
-                <p class="text-sm text-gray-500 mt-2">(profesionální fotografie)</p>
+                <p class="text-lg font-bold text-blue-600">Výsledek vygenerovaný AI</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ============================================
-     BENEFITS SECTION
-     ============================================ -->
-<section id="benefits" class="py-20 px-6" style="background: linear-gradient(to bottom, rgba(220, 230, 250, 0.7) 0%, rgba(245, 245, 245, 0.7) 100%); backdrop-filter: blur(48px);">
+<section id="benefits" class="py-24 px-6 bg-gray-50 border-y border-gray-100">
     <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-16 text-black tracking-wide">
-            Proč si vybrat BezModelky.cz
-        </h2>
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 font-serif mb-4">Méně starostí, více konverzí</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Zahoďte složitou produkci a soustřeďte se na prodej.</p>
+        </div>
         
         <div class="grid md:grid-cols-3 gap-8">
-            <!-- Benefit 1: Šetří náklady -->
-            <div class="text-center p-8 bg-white rounded-xl shadow-sm border border-gray-100">
-                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-6">
-      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
-        <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 11a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-      </svg>
-    </div>
-                <h3 class="text-2xl font-bold mb-3 text-black">Šetří náklady</h3>
-                <p class="text-gray-600">
-                    Ušetříte za profesionální fotografy, ateliéry i modelky. Jedna Vaše fotografie oblečení může mít stovky variant.
-                </p>
+            <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Drastické snížení nákladů</h3>
+                <p class="text-gray-600">Běžné focení s modelkou stojí 500-1000 Kč za fotku. S námi zaplatíte jen zlomek této ceny.</p>
             </div>
             
-            <!-- Benefit 2: Rychlé dodání -->
-            <div class="text-center p-8 bg-white rounded-xl shadow-sm border border-gray-100">
-                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-6">
-      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
-      </svg>
-    </div>
-                <h3 class="text-2xl font-bold mb-3 text-black">Rychlé dodání</h3>
-                <p class="text-gray-600">
-                    Hotové fotografie obdržíte do 24 hodin. Žádné zdlouhavé čekání na fotografa, plánování nebo postprodukci.
-                </p>
+            <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Rychlost nasazení</h3>
+                <p class="text-gray-600">Nová kolekce skladem? Nemusíte čekat týdny na termín ve studiu. Fotky vám dodáme do druhého dne.</p>
             </div>
             
-            <!-- Benefit 3: Různé typy modelek -->
-            <div class="text-center p-8 bg-white rounded-xl shadow-sm border border-gray-100">
-                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-6">
-      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M11 5a1 1 0 10-2 0v2H7a1 1 0 000 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V5z" clip-rule="evenodd" />
-        <path fill-rule="evenodd" d="M2 10a8 8 0 1116 0 8 8 0 01-16 0zm1.517 0a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z" clip-rule="evenodd" />
-      </svg>
-    </div>
-                <h3 class="text-2xl font-bold mb-3 text-black">Různé styly</h3>
-                <p class="text-gray-600">
-                    Můžete si vybrat z mnoha typů AI modelek: různé věkové kategorie, tělesné proporce a styly.
-                </p>
+            <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Diverzita a A/B testování</h3>
+                <p class="text-gray-600">Jeden kousek oblečení můžete ukázat na různých typech postav a zjistit, co vašim zákazníkům funguje nejlépe.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ============================================
-     PRICING SECTION
-     ============================================ -->
-<section id="pricing" class="py-20 px-6 bg-fafafa" style="background: linear-gradient(to bottom, rgba(255, 245, 235, 0.7) 0%, rgba(245, 245, 245, 0.7) 100%); backdrop-filter: blur(48px);">
+<section id="pricing" class="py-24 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-4 text-black tracking-wide">
-            Digitální modely a modelky pro Váš e-shop
-        </h2>
-        <p class="text-center text-gray-600 mb-16 text-lg">
-            Klasická produkce s živou modelkou a ateliérem Vás stojí 500–1 000 Kč za jedinou fotku. U nás platíte jen zlomek, platíte za výsledek a ušetřený čas.
-        </p>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Plan: Menší kolekce -->
-            <div class="bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-                <div class="bg-gray-100 px-8 py-8 border-b">
-                    <h3 class="text-2xl font-bold text-black">Menší kolekce</h3>
-                    <p class="text-gray-600 mt-2">1 až 10 fotografií</p>
-                </div>
-                <div class="px-8 py-8">
-                    <div class="text-4xl font-bold text-black mb-2">
-                        89 Kč
-                    </div>
-                    <p class="text-gray-600 mb-8">/ 1 fotografie</p>
-                    
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-3 font-bold">✓</span>
-                            <span class="text-gray-600">Rychlé dodání hotových fotografií</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-3 font-bold">✓</span>
-                            <span class="text-gray-600">Výběr základního prostředí pro focení</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-3 font-bold">✓</span>
-                            <span class="text-gray-600">Profesionální AI fitting oblečení na postavu</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="#contact" class="btn-secondary w-full text-center block">Vyzkoušet zdarma</a>
-                </div>
-            </div>
-            
-            <!-- Plan: E-shop / Sezóna (Featured) -->
-            <div class="bg-black border border-gray-700 text-white rounded-xl shadow-xl overflow-hidden md:-translate-y-4 hover:shadow-2xl transition">
-                <div class="bg-blue-600 px-8 py-8 border-b border-blue-500">
-                    <div class="text-sm font-semibold text-white mb-1">Nejoblíbenější</div>
-                    <h3 class="text-2xl font-bold">E-shop / Sezóna</h3>
-                    <p class="text-blue-100 mt-2">11 až 50 fotografií</p>
-                </div>
-                <div class="px-8 py-8">
-                    <div class="text-4xl font-bold mb-2">
-                        59 Kč
-                    </div>
-                    <p class="text-blue-100 mb-8">/ 1 fotografie</p>
-                    
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-blue-400 mr-3 font-bold">✓</span>
-                            <span class="text-gray-100">Výrazná sleva oproti základní sazbě</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-400 mr-3 font-bold">✓</span>
-                            <span class="text-gray-100">Jednotný vizuál napříč celou kolekcí</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-400 mr-3 font-bold">✓</span>
-                            <span class="text-gray-100">Možnost konzultace cílové skupiny</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="#contact" class="btn-primary w-full text-center block">Vybrat</a>
-                </div>
-            </div>
-            
-            <!-- Plan: Katalog / Velkoobchod -->
-            <div class="bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-                <div class="bg-gray-100 px-8 py-8 border-b">
-                    <h3 class="text-2xl font-bold text-black">Katalog / Velkoobchod</h3>
-                    <p class="text-gray-600 mt-2">51 až 200 fotografií</p>
-                </div>
-                <div class="px-8 py-8">
-                    <div class="text-4xl font-bold text-black mb-2">
-                        39 Kč
-                    </div>
-                    <p class="text-gray-600 mb-8">/ 1 fotografie</p>
-                    
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-3 font-bold">✓</span>
-                            <span class="text-gray-600">Maximální stlačení nákladů</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-3 font-bold">✓</span>
-                            <span class="text-gray-600">Prioritní zpracování</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-3 font-bold">✓</span>
-                            <span class="text-gray-600">Konzistence vzhledu (profesionální kampaň)</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="#contact" class="btn-secondary w-full text-center block">Vybrat</a>
-                </div>
-            </div>
-            <!-- Plan: Individuální plán -->
-            <div class="bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition mt-8 md:mt-0">
-                <div class="bg-gray-100 px-8 py-8 border-b">
-                    <h3 class="text-2xl font-bold text-black">Individuální plán</h3>
-                    <p class="text-gray-600 mt-2">Nad 200 fotografií / Pravidelná spolupráce</p>
-                </div>
-                <div class="px-8 py-8">
-                    <div class="text-4xl font-bold text-black mb-2">
-                        Na míru
-                    </div>
-                    <p class="text-gray-600 mb-8">(např. od 25 Kč / fotografie nebo fixní měsíční paušál)</p>
-                    
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-3 font-bold">✓</span>
-                            <span class="text-gray-600">Osobní přístup</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-3 font-bold">✓</span>
-                            <span class="text-gray-600">Trénink vlastních unikátních AI obličejů</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-3 font-bold">✓</span>
-                            <span class="text-gray-600">Možnost automatizovaného napojení</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-3 font-bold">✓</span>
-                            <span class="text-gray-600">Smlouva o mlčenlivosti (NDA)</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="#contact" class="btn-secondary w-full text-center block">Kontaktujte nás</a>
-                </div>
-            </div>
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 font-serif mb-4">Jednoduchý ceník za reálné výsledky</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Platíte pouze za perfektní fotografie, které jsou připravené k prodeji. Žádné skryté poplatky.</p>
         </div>
         
-        <p class="text-center text-gray-600 mt-12">
-            Všechny plány zahrnují bezplatný trial. Bez skrytých poplatků.
-        </p>
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            
+            <div class="bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden">
+                <div class="p-8 border-b border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-900">Start</h3>
+                    <p class="text-gray-500 text-sm mt-1">1 až 10 fotografií</p>
+                    <div class="mt-6 flex items-baseline gap-2">
+                        <span class="text-4xl font-bold text-gray-900">89 Kč</span>
+                        <span class="text-gray-500 font-medium">/ fotka</span>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start text-gray-600 text-sm"><span class="text-blue-600 mr-2">✓</span>Dodání do 24 hodin</li>
+                        <li class="flex items-start text-gray-600 text-sm"><span class="text-blue-600 mr-2">✓</span>Výběr standardní AI modelky</li>
+                        <li class="flex items-start text-gray-600 text-sm"><span class="text-blue-600 mr-2">✓</span>Základní ateliérové pozadí</li>
+                    </ul>
+                    <a href="#contact" class="btn-secondary w-full text-center">Vyzkoušet 1 foto zdarma</a>
+                </div>
+            </div>
+            
+            <div class="bg-gray-900 border border-gray-900 rounded-2xl shadow-xl transition overflow-hidden relative transform md:-translate-y-4">
+                <div class="absolute top-0 inset-x-0 h-1 bg-blue-600"></div>
+                <div class="p-8 border-b border-gray-800">
+                    <div class="inline-block px-3 py-1 bg-blue-600/20 text-blue-400 text-xs font-bold rounded-full mb-3 uppercase tracking-wider">Nejoblíbenější</div>
+                    <h3 class="text-xl font-bold text-white">Kolekce</h3>
+                    <p class="text-gray-400 text-sm mt-1">11 až 50 fotografií</p>
+                    <div class="mt-6 flex items-baseline gap-2">
+                        <span class="text-4xl font-bold text-white">59 Kč</span>
+                        <span class="text-gray-400 font-medium">/ fotka</span>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start text-gray-300 text-sm"><span class="text-blue-400 mr-2">✓</span>Konzistentní modelka napříč kolekcí</li>
+                        <li class="flex items-start text-gray-300 text-sm"><span class="text-blue-400 mr-2">✓</span>Až 3 různé lokace (prostředí)</li>
+                        <li class="flex items-start text-gray-300 text-sm"><span class="text-blue-400 mr-2">✓</span>Garance spokojenosti s výstupem</li>
+                    </ul>
+                    <a href="#contact" class="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg w-full text-center block">Poptat focení</a>
+                </div>
+            </div>
+            
+            <div class="bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden">
+                <div class="p-8 border-b border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-900">Velkoobchod</h3>
+                    <p class="text-gray-500 text-sm mt-1">Nad 50 fotografií / Pravidelně</p>
+                    <div class="mt-6 flex items-baseline gap-2">
+                        <span class="text-4xl font-bold text-gray-900">Na míru</span>
+                        <span class="text-gray-500 font-medium"></span>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start text-gray-600 text-sm"><span class="text-blue-600 mr-2">✓</span>Výrazné množstevní slevy</li>
+                        <li class="flex items-start text-gray-600 text-sm"><span class="text-blue-600 mr-2">✓</span>Trénink vlastní unikátní AI tváře</li>
+                        <li class="flex items-start text-gray-600 text-sm"><span class="text-blue-600 mr-2">✓</span>Možnost API / automatizace</li>
+                        <li class="flex items-start text-gray-600 text-sm"><span class="text-blue-600 mr-2">✓</span>Smlouva o mlčenlivosti (NDA)</li>
+                    </ul>
+                    <a href="#contact" class="btn-secondary w-full text-center">Kontaktovat prodej</a>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>
 
-<!-- ============================================
-     CONTACT SECTION
-     ============================================ -->
-<section id="contact" class="py-20 px-6" style="background: linear-gradient(to bottom, rgba(255, 245, 235, 0.7) 0%, rgba(245, 245, 245, 0.7) 100%); backdrop-filter: blur(48px);">
-    <div class="max-w-2xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-4 text-black">
-            Připraveni na transformaci?
+<section id="faq" class="py-24 px-6 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gray-900 font-serif">
+            Často kladené dotazy
         </h2>
-        <p class="text-center text-gray-600 mb-12 text-lg">
-            Napište nám a obdržíte individuální nabídku. Nebo rovnou vyzkoušejte službu zdarma.
-        </p>
         
-        <form id="contact-form" class="bg-gray-50 rounded-xl p-8 shadow-lg">
-            <div class="mb-6">
-                <label for="name" class="block text-gray-700 font-semibold mb-2">Vaše jméno</label>
-                <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    required 
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    placeholder="Petr Novák"
-                >
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h4 class="font-bold text-gray-900 mb-2">Komu patří autorská práva k fotkám?</h4>
+                <p class="text-gray-600 text-sm">Vám. Jakmile vám předáme hotové fotografie a faktura je uhrazena, získáváte plná komerční práva k jejich neomezenému užití na e-shopu i v reklamách.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h4 class="font-bold text-gray-900 mb-2">Bude modelka vypadat stále stejně?</h4>
+                <p class="text-gray-600 text-sm">Ano, pro balíčky "Kolekce" a vyšší umíme zafixovat konkrétní generovanou tvář, aby vaše značka působila sjednoceně a profesionálně.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h4 class="font-bold text-gray-900 mb-2">Jaké vstupní fotky potřebujete?</h4>
+                <p class="text-gray-600 text-sm">Nejlepší jsou rovnoměrně nasvícené fotky oblečení na ramínku, krejčovské panně nebo rozložené na bílé zemi. Nemusí být profesionální, stačí mobil.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h4 class="font-bold text-gray-900 mb-2">Změní AI barvu nebo střih produktu?</h4>
+                <p class="text-gray-600 text-sm">Ne. Náš systém je úzce zaměřený na zachování přesné textury, střihu, barev a detailů vašeho oblečení (tzv. inpainting). Mění se pouze "vyplnění" figuríny živým člověkem.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-24 px-6 bg-white border-t border-gray-100">
+    <div class="max-w-xl mx-auto">
+        <div class="text-center mb-10">
+            <h2 class="text-4xl font-bold mb-4 text-gray-900 font-serif">Pojďme to vyzkoušet</h2>
+            <p class="text-gray-600">Napište nám, o co máte zájem, nebo si rovnou domluvte vygenerování jedné fotky na zkoušku zdarma.</p>
+        </div>
+        
+        <form id="contact-form" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label for="name" class="block text-sm font-semibold text-gray-900 mb-2">Jméno</label>
+                    <input type="text" id="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="Jan Novák">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">E-mail</label>
+                    <input type="email" id="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="jan@eshop.cz">
+                </div>
             </div>
             
-            <div class="mb-6">
-                <label for="email" class="block text-gray-700 font-semibold mb-2">E-mail</label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    required 
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    placeholder="petr@example.com"
-                >
+            <div>
+                <label for="eshop" class="block text-sm font-semibold text-gray-900 mb-2">Váš e-shop / Web</label>
+                <input type="url" id="eshop" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="https://">
             </div>
             
-            <div class="mb-6">
-                <label for="eshop" class="block text-gray-700 font-semibold mb-2">Váš e-shop / web</label>
-                <input 
-                    type="url" 
-                    id="eshop" 
-                    name="eshop" 
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    placeholder="https://vas-eshop.cz"
-                >
+            <div>
+                <label for="message" class="block text-sm font-semibold text-gray-900 mb-2">Co potřebujete nafotit?</label>
+                <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition" placeholder="Např.: Připravuji jarní kolekci šatů (asi 30 kusů)..."></textarea>
             </div>
             
-            <div class="mb-8">
-                <label for="message" class="block text-gray-700 font-semibold mb-2">Vaše zpráva</label>
-                <textarea 
-                    id="message" 
-                    name="message" 
-                    rows="5" 
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    placeholder="Napište nám, čím si nejistí nebo co Vám chybí..."
-                ></textarea>
-            </div>
-            
-            <button 
-                type="submit" 
-                class="btn-primary w-full text-center"
-            >
-                Odeslat zprávu
-            </button>
+            <button type="submit" class="btn-primary w-full text-center py-4 text-lg">Odeslat nezávaznou poptávku</button>
         </form>
         
-        <!-- Kontaktní info -->
-        <div class="mt-12 text-center">
-            <p class="text-gray-600 mb-4">
-                Nebo nám napište přímo:
-            </p>
-            <a href="mailto:info@aimodelka.cz" class="text-blue-600 font-semibold hover:text-blue-700 block mb-4">
-                info@aimodelka.cz
-            </a>
-            <p class="text-sm text-gray-500">
-                Odpovídáme během 2 hodin
-            </p>
+        <div class="mt-10 text-center">
+            <p class="text-sm text-gray-500 mb-2">Nebo nám napište přímo na</p>
+            <a href="mailto:info@bezmodelky.cz" class="text-gray-900 font-bold hover:text-blue-600 transition">info@bezmodelky.cz</a>
         </div>
     </div>
 </section>
 
-<!-- ============================================
-     FOOTER
-     ============================================ -->
-<footer class="bg-black text-white py-12 px-6">
-    <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-                <h3 class="text-xl font-bold mb-4">Bez modelky</h3>
-                <p class="text-gray-400 text-sm">
-                    Profesionální fotky oblečení generované umělou inteligencí pro BezModelky.cz.
-                </p>
-            </div>
-            
-            <div>
-                <h4 class="font-semibold mb-4">Navigace</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#home" class="hover:text-white transition">Domů</a></li>
-                    <li><a href="#benefits" class="hover:text-white transition">Výhody</a></li>
-                    <li><a href="#pricing" class="hover:text-white transition">Ceník</a></li>
-                    <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
-                    <li><a href="#contact" class="hover:text-white transition">Kontakt</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="font-semibold mb-4">Sociální sítě</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-white transition">Instagram</a></li>
-                    <li><a href="#" class="hover:text-white transition">LinkedIn</a></li>
-                    <li><a href="#" class="hover:text-white transition">Facebook</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="font-semibold mb-4">Právní</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-white transition">Obchodní podmínky</a></li>
-                    <li><a href="#" class="hover:text-white transition">Zásady ochrany osobních údajů (GDPR)</a></li>
-                    <li><a href="#" class="hover:text-white transition">Cookies</a></li>
-                </ul>
-            </div>
+<footer class="bg-gray-900 text-white py-16 px-6 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+            <a href="#home" class="text-2xl font-bold text-white font-serif tracking-tight mb-4 inline-block">
+                BezModelky<span class="text-blue-500">.cz</span>
+            </a>
+            <p class="text-gray-400 text-sm max-w-sm">
+                Pomáháme módním e-shopům snižovat náklady a prodávat více díky fotorealistickým AI modelkám.
+            </p>
         </div>
         
-        <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-            <p>&copy; 2026 BezModelky.cz. Všechna práva vyhrazena.</p>
+        <div>
+            <h4 class="font-bold text-gray-100 mb-4 uppercase text-xs tracking-wider">Navigace</h4>
+            <ul class="space-y-3 text-sm text-gray-400">
+                <li><a href="#how-it-works" class="hover:text-white transition">Jak to funguje</a></li>
+                <li><a href="#pricing" class="hover:text-white transition">Ceník</a></li>
+                <li><a href="#faq" class="hover:text-white transition">Časté dotazy (FAQ)</a></li>
+                <li><a href="#contact" class="hover:text-white transition">Kontakt</a></li>
+            </ul>
         </div>
+        
+        <div>
+            <h4 class="font-bold text-gray-100 mb-4 uppercase text-xs tracking-wider">Právní info</h4>
+            <ul class="space-y-3 text-sm text-gray-400">
+                <li><a href="#" class="hover:text-white transition">Obchodní podmínky</a></li>
+                <li><a href="#" class="hover:text-white transition">Zásady ochrany osobních údajů</a></li>
+                <li><a href="#" class="hover:text-white transition">Nastavení Cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="max-w-6xl mx-auto border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <p>&copy; 2026 BezModelky.cz. Všechna práva vyhrazena.</p>
+        <p class="mt-2 md:mt-0">Tvoříme budoucnost e-commerce.</p>
     </div>
 </footer>
 
-<!-- ============================================
-     JAVASCRIPT
-     ============================================ -->
 <script>
     // Mobile menu toggle
     const menuBtn = document.getElementById('menu-btn');
@@ -532,19 +451,13 @@
         });
     });
     
-    // Form submission (jednoduchý handler - v praxi by to bylo API)
+    // Form submission
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const eshop = document.getElementById('eshop').value;
-            const message = document.getElementById('message').value;
-            
-            // V praxi by zde byla API komunikace s backendem
-            // Nyní jen simulujeme úspěch
-            alert(`Děkujeme, ${name}!\n\nVaše zpráva byla odeslána. Brzy Vám odpovíme na ${email}`);
+            alert(`Děkujeme, ${name}!\n\nVaše zpráva byla přijata. Brzy se Vám ozveme s dalšími kroky.`);
             contactForm.reset();
         });
     }
