@@ -676,14 +676,13 @@
             <h4 class="font-bold text-gray-100 mb-4 uppercase text-xs tracking-wider">Právní info</h4>
             <ul class="space-y-3 text-sm text-gray-400">
                 <li><a href="podminky.html" class="hover:text-white transition">Obchodní podmínky</a></li>
-                <li><a href="#" class="hover:text-white transition">Zásady ochrany osobních údajů</a></li>
-                <li><a href="#" class="hover:text-white transition">Nastavení Cookies</a></li>
+                <li><a href="zasady-ochrany-osobnich-udaju.html" class="hover:text-white transition">Zásady ochrany osobních údajů</a></li>
             </ul>
         </div>
     </div>
     
     <div class="max-w-6xl mx-auto border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-        <p>&copy; 2026 BezModelky.cz. Všechna práva vyhrazena.</p>
+        <p>2026 BezModelky.cz</p>
         <p class="mt-2 md:mt-0">Tvoříme budoucnost e-commerce.</p>
     </div>
 </footer>
@@ -715,6 +714,16 @@
         const activeBtn = document.querySelector('[data-tab="' + tabName + '"]');
         activeBtn.classList.add('bg-gray-900', 'text-white', 'border-gray-900');
         activeBtn.classList.remove('bg-white', 'text-gray-600', 'border-gray-200');
+
+        // Ihned načíst obrázky pro zobrazený tab (pokud se nestihly načíst na pozadí)
+        const activeImages = document.querySelectorAll('#tab-' + tabName + ' .lazy-image');
+        activeImages.forEach(img => {
+            if (!img.hasAttribute('src')) {
+                img.removeAttribute('loading');
+                img.src = img.getAttribute('data-src');
+                img.onload = () => img.classList.remove('opacity-0');
+            }
+        });
     }
     document.querySelectorAll('.style-tab').forEach(t => {
         t.classList.add('bg-white', 'text-gray-600', 'border-gray-200');
@@ -726,13 +735,34 @@
     window.addEventListener('load', () => {
         // Počkáme chvíli po úplném načtení stránky (text a hero obrázek jsou prioritní)
         setTimeout(() => {
-            const lazyImages = document.querySelectorAll('.lazy-image');
-            lazyImages.forEach((img, index) => {
-                // Pomalé, postupné načítání obrázků v portfoliu pro plynulý zážitek a šetření sítě
+            let delay = 0;
+            
+            // 1. Nejdříve načteme viditelné obrázky (v aktivním tabu)
+            const visibleImages = document.querySelectorAll('.style-panel:not(.hidden) .lazy-image');
+            visibleImages.forEach((img) => {
                 setTimeout(() => {
-                    img.src = img.getAttribute('data-src');
-                    img.onload = () => img.classList.remove('opacity-0');
-                }, index * 200); // 200ms rozestup mezi spuštěním stahování každého obrázku
+                    if (!img.hasAttribute('src')) {
+                        img.src = img.getAttribute('data-src');
+                        img.onload = () => img.classList.remove('opacity-0');
+                    }
+                }, delay);
+                delay += 200;
+            });
+
+            // 2. Poté pomalu stáhneme všechny skryté obrázky s nejnižší prioritou na pozadí
+            const hiddenImages = document.querySelectorAll('.style-panel.hidden .lazy-image');
+            delay += 1000; // Extra prodleva, aby linka zůstala chvíli volná pro jiné důležité části stránky
+            
+            hiddenImages.forEach((img) => {
+                setTimeout(() => {
+                    if (!img.hasAttribute('src')) {
+                        img.removeAttribute('loading'); // Nutné odstranit, jinak moderní prohlížeče blokují stahování u "display: none" elementů
+                        img.setAttribute('fetchpriority', 'low'); // Stáhne se s nejnižší prioritou sítě
+                        img.src = img.getAttribute('data-src');
+                        img.onload = () => img.classList.remove('opacity-0');
+                    }
+                }, delay);
+                delay += 150; 
             });
         }, 300);
     });
