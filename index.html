@@ -182,33 +182,7 @@
     </div>
 </section>
 -->
-<section id="how-it-works" class="py-24 px-6 bg-gray-50">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="section-title text-4xl font-bold text-center mb-16 text-gray-900 font-serif">
-            Tři kroky k dokonalé fotografii
-        </h2>
-        
-        <div class="grid md:grid-cols-3 gap-12">
-            <div class="relative text-center">
-                <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center text-2xl font-bold text-blue-600 mx-auto mb-6 shadow-sm">1</div>
-                <h3 class="text-xl font-bold mb-3 text-gray-900">Vyfotíte produkt</h3>
-                <p class="text-gray-600">Stačí obyčejná fotka oblečení na ramínku, figuríně nebo rozložená naplocho (flatlay).</p>
-            </div>
-            
-            <div class="relative text-center">
-                <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center text-2xl font-bold text-blue-600 mx-auto mb-6 shadow-sm">2</div>
-                <h3 class="text-xl font-bold mb-3 text-gray-900">Zadáte parametry</h3>
-                <p class="text-gray-600">Vyberete si typ modelky (věk, etnikum, postava) a prostředí, které k vaší značce sedí.</p>
-            </div>
-            
-            <div class="relative text-center">
-                <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 shadow-md">3</div>
-                <h3 class="text-xl font-bold mb-3 text-gray-900">Do 24h prodáváte</h3>
-                <p class="text-gray-600">Naše AI oblékne produkt na modelku se zachováním střihu a materiálů. Fotky jsou připravené pro web.</p>
-            </div>
-        </div>
-    </div>
-</section>
+
 <!--
 <section id="showcase" class="py-24 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
@@ -398,38 +372,58 @@
             </div>
         </div>
 
-        <!-- ===== SUMMER ===== -->
+         <!-- ===== SUMMER ===== -->
         <div id="tab-summer" class="style-panel hidden">
             <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
                 <div class="p-8 md:p-10">
-                    <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-6">Výsledky v přípravě — ukázka modelky a oblečení</p>
-
-                    <!-- Bez finálních výsledků — zobraz modelku prominentně + oblečení -->
-                    <div class="grid md:grid-cols-2 gap-8 mb-8 items-start">
-                        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md max-w-xs mx-auto w-full">
-                            <img src="summer/flux_krea_mod1base_00003_.png" alt="Letní modelka"
+                    <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-6">Finální výsledky</p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-2 ring-blue-50">
+                            <img src="summer/ComfyUI_final00001_.png" alt="Letní výsledek 1"
                                 class="w-full h-full object-cover object-top" loading="lazy">
                         </div>
-                        <div>
-                            <p class="text-sm text-gray-500 mb-4 font-medium">Oblečení připravené k oblékání:</p>
-                            <div class="grid grid-cols-2 gap-3">
-                                <div class="aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
-                                    <img src="summer/flux_krea_mod1_00014_.png" alt="Oblečení"
-                                        class="w-full h-full object-cover" loading="lazy">
-                                </div>
-                                <div class="aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
-                                    <img src="summer/flux_krea_mod1_00015_.png" alt="Oblečení"
-                                        class="w-full h-full object-cover" loading="lazy">
-                                </div>
-                                <div class="aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
-                                    <img src="summer/flux_krea_mod1_00016_.png" alt="Oblečení"
-                                        class="w-full h-full object-cover" loading="lazy">
-                                </div>
-                                <div class="aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
-                                    <img src="summer/flux_krea_mod1_00017_.png" alt="Oblečení"
-                                        class="w-full h-full object-cover" loading="lazy">
-                                </div>
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-2 ring-blue-50">
+                            <img src="summer/ComfyUI_final00002_.png" alt="Letní výsledek 2"
+                                class="w-full h-full object-cover object-top" loading="lazy">
+                        </div>
+                    </div>
+ 
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="flex-1 h-px bg-gray-100"></div>
+                        <div class="flex items-center gap-2 text-gray-400 text-sm font-medium">
+                            <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                            </svg>
+                            Vstupní fotky oblečení od klienta
+                        </div>
+                        <div class="flex-1 h-px bg-gray-100"></div>
+                    </div>
+ 
+                    <div class="flex flex-wrap items-end gap-3">
+                        <div class="flex gap-3 flex-wrap flex-1">
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="summer/flux_krea_mod1_00014_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
                             </div>
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="summer/flux_krea_mod1_00015_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="summer/flux_krea_mod1_00016_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="summer/flux_krea_mod1_00017_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="w-16 aspect-[2/3] rounded-lg overflow-hidden border-2 border-gray-300 shadow-sm ml-auto">
+                                <img src="summer/flux_krea_mod1base_00003_.png" alt="Základní modelka"
+                                    class="w-full h-full object-cover object-top" loading="lazy">
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">Modelka</p>
                         </div>
                     </div>
                 </div>
@@ -499,6 +493,34 @@
 </section>
 <!-- ===== KONEC NOVÉ SEKCE ===== -->
 
+    <section id="how-it-works" class="py-24 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="section-title text-4xl font-bold text-center mb-16 text-gray-900 font-serif">
+            Tři kroky k dokonalé fotografii
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="relative text-center">
+                <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center text-2xl font-bold text-blue-600 mx-auto mb-6 shadow-sm">1</div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Vyfotíte produkt</h3>
+                <p class="text-gray-600">Stačí obyčejná fotka oblečení na ramínku, figuríně nebo rozložená naplocho (flatlay).</p>
+            </div>
+            
+            <div class="relative text-center">
+                <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center text-2xl font-bold text-blue-600 mx-auto mb-6 shadow-sm">2</div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Zadáte parametry</h3>
+                <p class="text-gray-600">Vyberete si typ modelky (věk, etnikum, postava) a prostředí, které k vaší značce sedí.</p>
+            </div>
+            
+            <div class="relative text-center">
+                <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 shadow-md">3</div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Do 24h prodáváte</h3>
+                <p class="text-gray-600">Naše AI oblékne produkt na modelku se zachováním střihu a materiálů. Fotky jsou připravené pro web.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ===== KONEC  SEKCE ===== -->
 <section id="benefits" class="py-24 px-6 bg-gray-50 border-y border-gray-100">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
