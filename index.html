@@ -110,6 +110,7 @@
         <div class="hidden md:flex gap-8 items-center font-medium">
             <a href="#how-it-works" class="text-gray-600 hover:text-gray-900 transition">Jak to funguje</a>
             <a href="#showcase" class="text-gray-600 hover:text-gray-900 transition">Ukázky</a>
+            <a href="#styles" class="text-gray-600 hover:text-gray-900 transition">Styly</a>
             <a href="#pricing" class="text-gray-600 hover:text-gray-900 transition">Ceník</a>
             <a href="#faq" class="text-gray-600 hover:text-gray-900 transition">FAQ</a>
             <a href="#contact" class="px-5 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition text-sm">Kontakt</a>
@@ -125,6 +126,7 @@
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
         <a href="#how-it-works" class="block px-6 py-4 text-gray-600 hover:bg-gray-50 hover:text-gray-900 border-b border-gray-50">Jak to funguje</a>
         <a href="#showcase" class="block px-6 py-4 text-gray-600 hover:bg-gray-50 hover:text-gray-900 border-b border-gray-50">Ukázky</a>
+        <a href="#styles" class="block px-6 py-4 text-gray-600 hover:bg-gray-50 hover:text-gray-900 border-b border-gray-50">Styly</a>
         <a href="#pricing" class="block px-6 py-4 text-gray-600 hover:bg-gray-50 hover:text-gray-900 border-b border-gray-50">Ceník</a>
         <a href="#faq" class="block px-6 py-4 text-gray-600 hover:bg-gray-50 hover:text-gray-900 border-b border-gray-50">FAQ</a>
         <a href="#contact" class="block px-6 py-4 font-semibold text-blue-600 hover:bg-gray-50">Kontakt</a>
@@ -223,6 +225,262 @@
         </div>
     </div>
 </section>
+
+<!-- ===== NOVÁ SEKCE: Styly a prostředí ===== -->
+<section id="styles" class="py-24 px-6 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto">
+
+        <div class="text-center mb-14">
+            <div class="inline-block px-4 py-1 mb-4 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm tracking-wide">
+                Portfolio výsledků
+            </div>
+            <h2 class="text-4xl font-bold text-gray-900 font-serif mb-4">
+                Styly a prostředí
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Jeden kus oblečení. Čtyři různé světy. Vyberte prostředí, které sedí vaší značce.
+            </p>
+        </div>
+
+        <!-- Tab navigace -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10" id="style-tabs">
+            <button onclick="switchTab('high_fashion')" data-tab="high_fashion"
+                class="style-tab active-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all border">
+                🏨 High Fashion
+            </button>
+            <button onclick="switchTab('street')" data-tab="street"
+                class="style-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all border">
+                🏙️ Street
+            </button>
+            <button onclick="switchTab('summer')" data-tab="summer"
+                class="style-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all border">
+                ☀️ Letní
+            </button>
+            <button onclick="switchTab('sporty')" data-tab="sporty"
+                class="style-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all border">
+                🏔️ Outdoor
+            </button>
+        </div>
+
+        <!-- ===== HIGH FASHION ===== -->
+        <div id="tab-high_fashion" class="style-panel">
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+                <!-- Finální výsledky - hlavní oblast -->
+                <div class="p-8 md:p-10">
+                    <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-6">Finální výsledky</p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-2 ring-blue-50">
+                            <img src="high_fashion/ComfyUI_final00001_.png" alt="High Fashion výsledek 1"
+                                class="w-full h-full object-cover object-top" loading="lazy">
+                        </div>
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-2 ring-blue-50">
+                            <img src="high_fashion/ComfyUI_final00002_.png" alt="High Fashion výsledek 2"
+                                class="w-full h-full object-cover object-top" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Oddělovač s šipkou -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="flex-1 h-px bg-gray-100"></div>
+                        <div class="flex items-center gap-2 text-gray-400 text-sm font-medium">
+                            <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                            </svg>
+                            Vstupní fotky oblečení od klienta
+                        </div>
+                        <div class="flex-1 h-px bg-gray-100"></div>
+                    </div>
+
+                    <!-- Miniatury oblečení + base model -->
+                    <div class="flex flex-wrap items-end gap-3">
+                        <div class="flex gap-3 flex-wrap flex-1">
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="high_fashion/flux_krea_mod1_00007_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="high_fashion/flux_krea_mod1_00008_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="high_fashion/flux_krea_mod1_00009_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="high_fashion/flux_krea_mod1_00021_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="w-16 aspect-[2/3] rounded-lg overflow-hidden border-2 border-gray-300 shadow-sm ml-auto">
+                                <img src="high_fashion/flux_krea_mod1base_00001_.png" alt="Základní modelka"
+                                    class="w-full h-full object-cover object-top" loading="lazy">
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">Modelka</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== STREET ===== -->
+        <div id="tab-street" class="style-panel hidden">
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+                <div class="p-8 md:p-10">
+                    <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-6">Finální výsledky</p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-2 ring-blue-50">
+                            <img src="street/ComfyUI_final00003_.png" alt="Street výsledek 1"
+                                class="w-full h-full object-cover object-top" loading="lazy">
+                        </div>
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-2 ring-blue-50">
+                            <img src="street/ComfyUI_final00004_.png" alt="Street výsledek 2"
+                                class="w-full h-full object-cover object-top" loading="lazy">
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="flex-1 h-px bg-gray-100"></div>
+                        <div class="flex items-center gap-2 text-gray-400 text-sm font-medium">
+                            <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                            </svg>
+                            Vstupní fotky oblečení od klienta
+                        </div>
+                        <div class="flex-1 h-px bg-gray-100"></div>
+                    </div>
+
+                    <div class="flex flex-wrap items-end gap-3">
+                        <div class="flex gap-3 flex-wrap flex-1">
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="street/flux_krea_mod1_00010_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="street/flux_krea_mod1_00011_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="street/flux_krea_mod1_00012_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="street/flux_krea_mod1_00013_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="w-16 aspect-[2/3] rounded-lg overflow-hidden border-2 border-gray-300 shadow-sm ml-auto">
+                                <img src="street/flux_krea_mod1base_00002_.png" alt="Základní modelka"
+                                    class="w-full h-full object-cover object-top" loading="lazy">
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">Modelka</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SUMMER ===== -->
+        <div id="tab-summer" class="style-panel hidden">
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+                <div class="p-8 md:p-10">
+                    <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-6">Výsledky v přípravě — ukázka modelky a oblečení</p>
+
+                    <!-- Bez finálních výsledků — zobraz modelku prominentně + oblečení -->
+                    <div class="grid md:grid-cols-2 gap-8 mb-8 items-start">
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md max-w-xs mx-auto w-full">
+                            <img src="summer/flux_krea_mod1base_00003_.png" alt="Letní modelka"
+                                class="w-full h-full object-cover object-top" loading="lazy">
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 mb-4 font-medium">Oblečení připravené k oblékání:</p>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                    <img src="summer/flux_krea_mod1_00014_.png" alt="Oblečení"
+                                        class="w-full h-full object-cover" loading="lazy">
+                                </div>
+                                <div class="aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                    <img src="summer/flux_krea_mod1_00015_.png" alt="Oblečení"
+                                        class="w-full h-full object-cover" loading="lazy">
+                                </div>
+                                <div class="aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                    <img src="summer/flux_krea_mod1_00016_.png" alt="Oblečení"
+                                        class="w-full h-full object-cover" loading="lazy">
+                                </div>
+                                <div class="aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                    <img src="summer/flux_krea_mod1_00017_.png" alt="Oblečení"
+                                        class="w-full h-full object-cover" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SPORTY / OUTDOOR ===== -->
+        <div id="tab-sporty" class="style-panel hidden">
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+                <div class="p-8 md:p-10">
+                    <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-6">Finální výsledky</p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-2 ring-blue-50">
+                            <img src="sporty/ComfyUI_final00005_.png" alt="Outdoor výsledek 1"
+                                class="w-full h-full object-cover object-top" loading="lazy">
+                        </div>
+                        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-2 ring-blue-50">
+                            <img src="sporty/ComfyUI_final00006_.png" alt="Outdoor výsledek 2"
+                                class="w-full h-full object-cover object-top" loading="lazy">
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="flex-1 h-px bg-gray-100"></div>
+                        <div class="flex items-center gap-2 text-gray-400 text-sm font-medium">
+                            <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                            </svg>
+                            Vstupní fotky oblečení od klienta
+                        </div>
+                        <div class="flex-1 h-px bg-gray-100"></div>
+                    </div>
+
+                    <div class="flex flex-wrap items-end gap-3">
+                        <div class="flex gap-3 flex-wrap flex-1">
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="sporty/flux_krea_mod1_00018_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="sporty/flux_krea_mod1_00019_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="w-20 aspect-[2/3] rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                <img src="sporty/flux_krea_mod1_00020_.png" alt="Oblečení"
+                                    class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="w-16 aspect-[2/3] rounded-lg overflow-hidden border-2 border-gray-300 shadow-sm ml-auto">
+                                <img src="sporty/flux_krea_mod1base_00006_.png" alt="Základní modelka"
+                                    class="w-full h-full object-cover object-top" loading="lazy">
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">Modelka</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA pod galerií -->
+        <div class="text-center mt-10">
+            <a href="#contact" class="btn-primary">Chci takové fotky pro svůj e-shop</a>
+        </div>
+
+    </div>
+</section>
+<!-- ===== KONEC NOVÉ SEKCE ===== -->
 
 <section id="benefits" class="py-24 px-6 bg-gray-50 border-y border-gray-100">
     <div class="max-w-6xl mx-auto">
@@ -455,6 +713,24 @@
         });
     });
     
+    // Style tabs
+    function switchTab(tabName) {
+        document.querySelectorAll('.style-panel').forEach(p => p.classList.add('hidden'));
+        document.querySelectorAll('.style-tab').forEach(t => {
+            t.classList.remove('bg-gray-900', 'text-white', 'border-gray-900');
+            t.classList.add('bg-white', 'text-gray-600', 'border-gray-200');
+        });
+        document.getElementById('tab-' + tabName).classList.remove('hidden');
+        const activeBtn = document.querySelector('[data-tab="' + tabName + '"]');
+        activeBtn.classList.add('bg-gray-900', 'text-white', 'border-gray-900');
+        activeBtn.classList.remove('bg-white', 'text-gray-600', 'border-gray-200');
+    }
+    document.querySelectorAll('.style-tab').forEach(t => {
+        t.classList.add('bg-white', 'text-gray-600', 'border-gray-200');
+    });
+    switchTab('high_fashion');
+    window.switchTab = switchTab;
+
     // Form submission
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
