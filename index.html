@@ -722,6 +722,21 @@
     switchTab('high_fashion');
     window.switchTab = switchTab;
 
+    // Chytrý fetching obrázků
+    window.addEventListener('load', () => {
+        // Počkáme chvíli po úplném načtení stránky (text a hero obrázek jsou prioritní)
+        setTimeout(() => {
+            const lazyImages = document.querySelectorAll('.lazy-image');
+            lazyImages.forEach((img, index) => {
+                // Pomalé, postupné načítání obrázků v portfoliu pro plynulý zážitek a šetření sítě
+                setTimeout(() => {
+                    img.src = img.getAttribute('data-src');
+                    img.onload = () => img.classList.remove('opacity-0');
+                }, index * 200); // 200ms rozestup mezi spuštěním stahování každého obrázku
+            });
+        }, 300);
+    });
+
     // Form submission
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
