@@ -97,6 +97,23 @@
                         radial-gradient(at 50% 0%, hsla(250,100%,96%,1) 0, transparent 50%), 
                         radial-gradient(at 100% 0%, hsla(217,100%,94%,1) 0, transparent 50%);
         }
+
+        /* Elegantní stylizace nadpisů sekcí */
+        .section-title {
+            position: relative;
+            padding-bottom: 1.25rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 2px;
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -167,7 +184,7 @@
 -->
 <section id="how-it-works" class="py-24 px-6 bg-gray-50">
     <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-16 text-gray-900 font-serif">
+        <h2 class="section-title text-4xl font-bold text-center mb-16 text-gray-900 font-serif">
             Tři kroky k dokonalé fotografii
         </h2>
         
@@ -195,7 +212,7 @@
 <!--
 <section id="showcase" class="py-24 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-16 text-gray-900 font-serif">
+        <h2 class="section-title text-4xl font-bold text-center mb-16 text-gray-900 font-serif">
             Ukázka v praxi
         </h2>
         
@@ -225,8 +242,8 @@
         </div>
     </div>
 </section>
--->
-<!-- ===== NOVÁ SEKCE: Styly a prostředí ===== -->
+
+ ===== NOVÁ SEKCE: Styly a prostředí ===== -->
 <section id="styles" class="py-24 px-6 bg-gray-50 border-t border-gray-100">
     <div class="max-w-6xl mx-auto">
 
@@ -234,7 +251,7 @@
             <div class="inline-block px-4 py-1 mb-4 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm tracking-wide">
                 Portfolio výsledků
             </div>
-            <h2 class="text-4xl font-bold text-gray-900 font-serif mb-4">
+            <h2 class="section-title text-4xl font-bold text-gray-900 font-serif mb-4">
                 Styly a prostředí
             </h2>
             <p class="text-gray-600 max-w-2xl mx-auto">
@@ -485,7 +502,7 @@
 <section id="benefits" class="py-24 px-6 bg-gray-50 border-y border-gray-100">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 font-serif mb-4">Méně starostí, více konverzí</h2>
+            <h2 class="section-title text-4xl font-bold text-gray-900 font-serif mb-4">Méně starostí, více konverzí</h2>
             <p class="text-gray-600 max-w-2xl mx-auto">Zahoďte složitou produkci a soustřeďte se na prodej.</p>
         </div>
         
@@ -520,7 +537,7 @@
 <section id="pricing" class="py-24 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 font-serif mb-4">Jednoduchý ceník za reálné výsledky</h2>
+            <h2 class="section-title text-4xl font-bold text-gray-900 font-serif mb-4">Jednoduchý ceník za reálné výsledky</h2>
             <p class="text-gray-600 max-w-2xl mx-auto">Platíte pouze za perfektní fotografie, které jsou připravené k prodeji.</p>
         </div>
         
@@ -592,7 +609,7 @@
 
 <section id="faq" class="py-24 px-6 bg-gray-50 border-t border-gray-100">
     <div class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 text-gray-900 font-serif">
+        <h2 class="section-title text-4xl font-bold text-center mb-12 text-gray-900 font-serif">
             Často kladené dotazy
         </h2>
         
@@ -620,7 +637,7 @@
 <section id="contact" class="py-24 px-6 bg-white border-t border-gray-100">
     <div class="max-w-xl mx-auto">
         <div class="text-center mb-10">
-            <h2 class="text-4xl font-bold mb-4 text-gray-900 font-serif">Pojďme to vyzkoušet</h2>
+            <h2 class="section-title text-4xl font-bold mb-4 text-gray-900 font-serif">Pojďme to vyzkoušet</h2>
             <p class="text-gray-600">Napište nám, o co máte zájem, nebo si rovnou domluvte vygenerování jedné fotky na zkoušku zdarma.</p>
         </div>
         
