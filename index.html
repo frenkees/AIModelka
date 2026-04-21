@@ -779,5 +779,32 @@
     }
 </script>
 
+<!-- Image Overlay for Enlarged View -->
+<div id="image-overlay" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-[9999]">
+    <img id="overlay-image" src="" alt="Enlarged image" class="max-w-[90vw] max-h-[90vh] object-contain cursor-pointer">
+</div>
+
+<script>
+    const imageOverlay = document.getElementById('image-overlay');
+    const overlayImage = document.getElementById('overlay-image');
+
+    // Apply event listeners to all images within the #styles section
+    document.querySelectorAll('#styles img').forEach(img => {
+        img.addEventListener('click', (event) => {
+            overlayImage.src = event.target.src;
+            imageOverlay.classList.remove('hidden');
+        });
+        img.addEventListener('contextmenu', (event) => {
+            event.preventDefault(); // Disable right-click
+        });
+    });
+
+    // Close the overlay when clicked
+    imageOverlay.addEventListener('click', () => {
+        imageOverlay.classList.add('hidden');
+        overlayImage.src = ''; // Clear the image source
+    });
+</script>
+
 </body>
 </html>
