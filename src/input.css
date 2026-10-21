@@ -1,0 +1,217 @@
+@import "tailwindcss" source(none);
+@source "../index.html";
+@source "../podminky.html";
+@source "../zasady-ochrany-osobnich-udaju.html";
+@source "../assets/main.js";
+
+/* ===== Fonty (self-hosted, latin + latin-ext kvůli češtině) ===== */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 900;
+  src: url(/assets/fonts/fraunces-latin-wght-normal.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 900;
+  src: url(/assets/fonts/fraunces-latin-ext-wght-normal.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Fraunces";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 300 900;
+  src: url(/assets/fonts/fraunces-latin-wght-italic.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Fraunces";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 300 900;
+  src: url(/assets/fonts/fraunces-latin-ext-wght-italic.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(/assets/fonts/inter-latin-wght-normal.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(/assets/fonts/inter-latin-ext-wght-normal.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ===== Design tokeny ===== */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+
+  --color-ivory: #faf8f5;
+  --color-sand: #f2eee8;
+  --color-line: #e6e0d6;
+  --color-ink: #14161c;
+  --color-ink-soft: #2a2d36;
+  --color-muted: #5b5f6b;
+  --color-accent: #3a57c4;
+  --color-accent-dark: #2c45a3;
+  --color-accent-light: #5fcfe3;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ivory font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3 {
+    @apply font-serif text-ink;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 font-semibold text-white shadow-[0_8px_24px_-8px_rgb(20_22_28/0.45)] transition hover:-translate-y-0.5 hover:bg-ink-soft active:translate-y-0;
+  }
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 font-semibold text-white shadow-[0_8px_24px_-8px_rgb(58_87_196/0.6)] transition hover:-translate-y-0.5 hover:bg-accent-dark active:translate-y-0;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/15 bg-white/60 px-7 py-3.5 font-semibold text-ink transition hover:border-ink/40 hover:bg-white;
+  }
+  .eyebrow {
+    @apply mb-4 inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] text-accent uppercase;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-6 bg-linear-to-r from-accent to-accent-light;
+  }
+  .section-title {
+    @apply text-4xl leading-[1.1] font-normal md:text-5xl;
+  }
+  .section-title em {
+    @apply font-normal italic;
+  }
+  .lead {
+    @apply text-lg leading-relaxed text-muted;
+  }
+  .input {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-ink transition placeholder:text-muted/60 focus:border-accent focus:ring-4 focus:ring-accent/15 focus:outline-none;
+  }
+  .prose-legal h2 {
+    @apply mt-10 mb-3 font-serif text-2xl;
+  }
+  .prose-legal p, .prose-legal ul {
+    @apply mt-3 leading-relaxed text-muted;
+  }
+  .prose-legal ul {
+    @apply list-disc space-y-1.5 pl-5;
+  }
+  .prose-legal a {
+    @apply font-semibold text-accent underline-offset-2 hover:underline;
+  }
+}
+
+/* ===== Before/after slider ===== */
+.compare {
+  --pos: 50%;
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+}
+.compare__after {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 0 0 var(--pos));
+}
+.compare__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 2px;
+  transform: translateX(-1px);
+  background: #fff;
+  box-shadow: 0 0 12px rgb(0 0 0 / 0.25);
+  pointer-events: none;
+}
+.compare__knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  background: #fff;
+  color: var(--color-ink);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.25);
+}
+.compare input[type="range"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+.compare:has(input:focus-visible) .compare__knob {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ===== Jemné odhalení při scrollu ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* FAQ akordeon */
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-icon { transform: rotate(45deg); }
+
+/* Lightbox */
+dialog.lightbox::backdrop { background: rgb(20 22 28 / 0.88); backdrop-filter: blur(4px); }

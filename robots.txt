@@ -1,9 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /admin/
-Disallow: /api/
-Disallow: /private/
-Disallow: /temp/
-Disallow: /cgi-bin/
-Disallow: /*?
+Sitemap: https://www.bezmodelky.cz/sitemap.xml
