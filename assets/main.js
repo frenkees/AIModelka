@@ -101,39 +101,8 @@
             entries.forEach((e) => (e.isIntersecting ? hidden.add(e.target) : hidden.delete(e.target)));
             sticky.toggleAttribute('data-visible', hidden.size === 0);
         });
-        ['#hero', '#kontakt'].forEach((s) => stickyIo.observe($(s)));
+        ['#hero', '#vyzkouset'].forEach((s) => stickyIo.observe($(s)));
     } else {
         reveals.forEach((el) => el.classList.add('is-visible'));
     }
-
-    // Kontaktní formulář (web3forms přes fetch, bez přesměrování)
-    const form = $('#contact-form');
-    const status = $('#form-status');
-    const setStatus = (ok, text) => {
-        status.textContent = text;
-        status.className = 'rounded-xl p-4 text-sm font-medium ' + (ok ? 'bg-emerald-50 text-emerald-800' : 'bg-red-50 text-red-800');
-    };
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = $('button[type="submit"]', form);
-        const label = btn.textContent;
-        btn.disabled = true;
-        btn.textContent = 'Odesílám…';
-        try {
-            const res = await fetch(form.action, {
-                method: 'POST',
-                headers: { Accept: 'application/json' },
-                body: new FormData(form),
-            });
-            const data = await res.json();
-            if (!res.ok || !data.success) throw new Error(data.message);
-            form.reset();
-            setStatus(true, 'Děkujeme! Poptávka dorazila, ozveme se vám do jednoho pracovního dne.');
-        } catch {
-            setStatus(false, 'Odeslání se nepovedlo. Zkuste to prosím znovu, nebo nám napište na info@bezmodelky.cz.');
-        } finally {
-            btn.disabled = false;
-            btn.textContent = label;
-        }
-    });
 })();

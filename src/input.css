@@ -3,6 +3,7 @@
 @source "../podminky.html";
 @source "../zasady-ochrany-osobnich-udaju.html";
 @source "../assets/main.js";
+@source "../src/upload.js";
 
 /* ===== Fonty (self-hosted, latin + latin-ext kvůli češtině) ===== */
 @font-face {
