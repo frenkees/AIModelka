@@ -3,14 +3,13 @@ import { createHmac, timingSafeEqual } from 'node:crypto';
 import { Ratelimit } from '@upstash/ratelimit';
 import { Redis } from '@upstash/redis';
 
-export const MAX_FILE_BYTES = 5 * 1024 * 1024;
+// Vercel Functions přijmou tělo požadavku max. 4,5 MB
+export const MAX_FILE_BYTES = 4 * 1024 * 1024;
 export const MAX_FILES = 3;
 export const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
 
 const UUID = '[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}';
 export const LEAD_ID_RE = new RegExp(`^${UUID}$`);
-// Cesta, kterou klient smí požadovat: uploads/<leadId>/<1-3>.<ext>
-export const UPLOAD_PATH_RE = new RegExp(`^uploads/(${UUID})/([1-3])\\.(jpg|png|webp)$`);
 
 export const json = (status, data) =>
   new Response(JSON.stringify(data), {
@@ -102,7 +101,7 @@ export async function withinLimits(checks) {
 }
 
 // ===== Podepsané odkazy na soukromé fotky (pro e-mailovou notifikaci) =====
-const linkSecret = () => process.env.FILE_LINK_SECRET || process.env.BLOB_READ_WRITE_TOKEN || '';
+const linkSecret = () => process.env.FILE_LINK_SECRET || process.env.BLOB_READ_WRITE_TOKEN || process.env.KV_REST_API_TOKEN || '';
 
 export function signPath(pathname, expiresAt) {
   return createHmac('sha256', linkSecret()).update(`${pathname}:${expiresAt}`).digest('base64url');

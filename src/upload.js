@@ -1,6 +1,6 @@
 // Formulář „Fotka zdarma“: kontrola kontaktu, příprava fotek v prohlížeči a bezpečné nahrání.
 const MAX_FILES = 3;
-const MAX_BYTES = 5 * 1024 * 1024;
+const MAX_BYTES = 4 * 1024 * 1024; // limit serveru (Vercel Functions přijmou max. 4,5 MB)
 const MAX_EDGE = 3000; // delší strana po zmenšení (px)
 const ALLOWED = ['image/jpeg', 'image/png', 'image/webp'];
 const WEB3FORMS_KEY = '6bcb1810-6e47-4daf-9442-bffd1827d46a';
@@ -40,7 +40,7 @@ function init(form) {
       ? 'Nejdřív vyplňte e-mail a telefon.'
       : files.length >= MAX_FILES
         ? 'Máte vybrané maximum 3 fotek.'
-        : 'JPG, PNG nebo WebP. Větší fotky automaticky zmenšíme na max. 5 MB.';
+        : 'JPG, PNG nebo WebP. Velké fotky z mobilu automaticky zmenšíme.';
   };
   email.addEventListener('input', updateLock);
   phone.addEventListener('input', updateLock);
@@ -115,14 +115,10 @@ function init(form) {
     const leadId = crypto.randomUUID();
 
     try {
-      const { put } = await import('@vercel/blob/client');
       const pathnames = [];
       for (const [i, item] of files.entries()) {
         submit.textContent = `Nahrávám fotku ${i + 1} z ${files.length}…`;
-        const pathname = `uploads/${leadId}/${i + 1}.jpg`;
-        const token = await getUploadToken(pathname, { email: data.email, phone: data.phone, ...guard });
-        const result = await put(pathname, item.blob, { access: 'private', token, contentType: 'image/jpeg' });
-        pathnames.push(result.pathname);
+        pathnames.push(await uploadPhoto(item.blob, { email: data.email, phone: data.phone, ...guard, leadId, index: i + 1 }));
       }
 
       submit.textContent = 'Odesílám…';
@@ -160,7 +156,7 @@ function init(form) {
       success.focus();
     } catch (err) {
       fail(err?.message && !/fetch|network/i.test(err.message)
-        ? cleanError(err.message)
+        ? err.message
         : 'Nahrání se nepovedlo. Zkontrolujte připojení a zkuste to znovu.');
     } finally {
       submit.disabled = false;
@@ -174,28 +170,18 @@ function init(form) {
   }
 }
 
-// Krátkodobý token pro nahrání jedné fotky (server ověří kontakt a limity)
-async function getUploadToken(pathname, payload) {
-  const res = await fetch('/api/upload', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      type: 'blob.generate-client-token',
-      payload: { pathname, clientPayload: JSON.stringify(payload), multipart: false },
-    }),
-  });
-  const body = await res.json().catch(() => ({}));
-  if (!res.ok || !body.clientToken) throw new Error(body.error || 'Nahrání se nepovedlo, zkuste to prosím znovu.');
-  return body.clientToken;
+// Nahraje jednu fotku na server (ten ověří kontakt, limity a obsah souboru)
+async function uploadPhoto(blob, fields) {
+  const body = new FormData();
+  for (const [key, value] of Object.entries(fields)) body.append(key, String(value));
+  body.append('photo', blob, 'photo.jpg');
+  const res = await fetch('/api/upload', { method: 'POST', body });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || !data.pathname) throw new Error(data.error || 'Nahrání se nepovedlo, zkuste to prosím znovu.');
+  return data.pathname;
 }
 
-// Chybové hlášky z nahrávací knihovny mají prefix, uživateli ukážeme jen naši zprávu
-function cleanError(message) {
-  const match = message.match(/"error"\s*:\s*"([^"]+)"/);
-  return (match ? match[1] : message.replace(/^Vercel Blob:\s*/, '')).slice(0, 200);
-}
-
-// Fotku překreslí do JPEG: odstraní metadata (GPS apod.), otočí podle EXIF a zmenší pod 5 MB.
+// Fotku překreslí do JPEG: odstraní metadata (GPS apod.), otočí podle EXIF a zmenší pod 4 MB.
 async function prepareImage(file) {
   const isImage = ALLOWED.includes(file.type) || /\.(jpe?g|png|webp|heic|heif)$/i.test(file.name);
   if (!isImage) throw new Error(`„${file.name}“ není fotka. Použijte JPG, PNG nebo WebP.`);
