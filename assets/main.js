@@ -21,15 +21,6 @@
     menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
     $$('a', mobileMenu).forEach((a) => a.addEventListener('click', () => setMenu(false)));
 
-    // Before/after slider
-    const compare = $('#compare');
-    if (compare) {
-        const range = $('input[type="range"]', compare);
-        const setPos = (v) => compare.style.setProperty('--pos', v + '%');
-        range.addEventListener('input', () => setPos(range.value));
-        setPos(range.value);
-    }
-
     // Taby portfolia (ARIA tabs + šipky na klávesnici)
     const tabs = $$('[role="tab"]');
     const selectTab = (tab, focus) => {

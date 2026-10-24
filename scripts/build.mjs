@@ -1,5 +1,5 @@
 // Sestaví produkční web do dist/ – jen soubory, které web skutečně používá.
-import { cp, rm, mkdir } from 'node:fs/promises';
+import { cp, rm, mkdir, readFile, writeFile } from 'node:fs/promises';
 
 const OUT = 'dist';
 const files = [
@@ -22,4 +22,40 @@ await rm(OUT, { recursive: true, force: true });
 await mkdir(OUT);
 await Promise.all(files.map((f) => cp(f, `${OUT}/${f}`)));
 await cp('assets', `${OUT}/assets`, { recursive: true });
-console.log(`dist/ připraven (${files.length} souborů + assets/)`);
+
+// Karusel v hero: webp obrázky + kompaktní data bez absolutních cest na disku
+await cp('karusel/web', `${OUT}/karusel/web`, { recursive: true });
+const karusel = JSON.parse(await readFile('karusel/karusel.json', 'utf8'));
+await writeFile(`${OUT}/karusel/data.json`, JSON.stringify(karuselData(karusel)));
+
+console.log(`dist/ připraven (${files.length} souborů + assets/ + karusel/)`);
+
+// Snímek se ukládá jako [základ URL, výška při šířce 832]; prohlížeč si doplní -200/-416/-624/-832.webp
+function karuselData(k) {
+  const shot = (s) => {
+    const base = s.nahled.url.replace(/-200\.webp$/, '');
+    for (const o of s.obrazky) {
+      if (o.url !== `${base}-${o.w}.webp`) throw new Error(`karusel.json: nečekaná URL ${o.url}`);
+    }
+    return [base, s.obrazky.at(-1).h];
+  };
+  return {
+    sirky: k.sirky,
+    pozy: k.pozy,
+    modelky: k.modelky.map((m) => ({
+      id: m.id,
+      jmeno: m.jmeno,
+      postava: m.postava,
+      zaklad: Object.fromEntries(m.zaklad.map((z) => [z.poza, shot(z)])),
+    })),
+    outfity: k.outfity.map((o) => ({
+      id: o.id,
+      nazev: o.nazev,
+      kusy: o.kusy.map((kus) => kus.obrazky[0].url),
+    })),
+    // Snímky, které kontrola kvality ohodnotila pod 5, vynecháme (null = kontrola neproběhla)
+    snimky: Object.fromEntries(k.snimky
+      .filter((s) => s.qc_skore == null || s.qc_skore >= 5)
+      .map((s) => [`${s.modelka}|${s.outfit}|${s.poza}`, shot(s)])),
+  };
+}
