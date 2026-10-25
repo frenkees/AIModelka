@@ -22,6 +22,9 @@ const files = [
 await rm(OUT, { recursive: true, force: true });
 await mkdir(OUT);
 await Promise.all(files.map((f) => cp(f, `${OUT}/${f}`)));
+for (const f of files.filter((f) => f.endsWith('.html'))) {
+  await writeFile(`${OUT}/${f}`, typography(withFaqSchema(await readFile(f, 'utf8'))));
+}
 await cp('assets', `${OUT}/assets`, { recursive: true });
 
 // Karusel v hero: webp obrázky + kompaktní data bez absolutních cest na disku
@@ -62,4 +65,34 @@ function karuselData(k) {
       .filter((s) => s.qc_skore == null || s.qc_skore >= 5)
       .map((s) => [`${s.modelka}|${s.outfit}|${s.poza}`, shot(s)])),
   };
+}
+
+// Strukturovaná data FAQ se skládají z viditelných otázek, aby se texty nerozcházely
+function withFaqSchema(html) {
+  const faq = [...html.matchAll(/<details[^>]*>\s*<summary[^>]*><h3[^>]*>(.*?)<\/h3>.*?<\/summary>\s*<p[^>]*>(.*?)<\/p>\s*<\/details>/gs)];
+  if (!faq.length) return html;
+  const text = (s) => s.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim();
+  const entity = {
+    '@type': 'FAQPage',
+    '@id': 'https://www.bezmodelky.cz/#faq',
+    mainEntity: faq.map(([, q, a]) => ({ '@type': 'Question', name: text(q), acceptedAnswer: { '@type': 'Answer', text: text(a) } })),
+  };
+  return html.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/, (_, open, json, close) => {
+    const data = JSON.parse(json);
+    data['@graph'].push(entity);
+    return `${open}\n${JSON.stringify(data, null, 2)}\n${close}`;
+  });
+}
+
+// České typografické mezery jen ve viditelném textu: jednopísmenné předložky a spojky
+// a číslo s jednotkou se nesmí rozdělit na konec a začátek řádku.
+function typography(html) {
+  const units = 'Kč|%|h|hodin|dní|dnů|dny|fotek|fotky|fotka|fotku|týdny|MB|×';
+  const unit = new RegExp(String.raw`(\d) (${units})(?=[\s.,;:)!?]|$)`, 'g');
+  const single = /(^|[\s(„])([kKsSvVzZoOuUaAiI]) (?=\S)/g;
+  return html.replace(/(<(script|style|textarea)\b[\s\S]*?<\/\2>)|>([^<]+)(?=<)/g, (m, raw, _tag, text) => {
+    if (raw) return raw;
+    // dvakrát kvůli sousedním předložkám („a v Praze“)
+    return '>' + text.replace(single, '$1$2&nbsp;').replace(single, '$1$2&nbsp;').replace(unit, '$1&nbsp;$2');
+  });
 }

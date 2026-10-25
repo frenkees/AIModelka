@@ -115,7 +115,7 @@ function init(root, data) {
     });
     strip.append(...buttons);
     const wrap = el('div', 'kz-pick', {}, [
-      el('p', 'kz-label', {}, [el('span', 'kz-label__dot', { 'aria-hidden': 'true' }), el('span', '', {}, ['Vyberte oblečení']), el('span', 'kz-label__hint', {}, ['produktová fotka → AI modelka'])]),
+      el('p', 'kz-label', {}, [el('span', 'kz-label__dot', { 'aria-hidden': 'true' }), el('span', '', {}, ['Vyberte oblečení']), el('span', 'kz-label__hint', {}, ['vaše fotka → AI modelka'])]),
       strip,
     ]);
     const setActive = (id) => buttons.forEach((b) => {
@@ -159,7 +159,7 @@ function init(root, data) {
 
   const inputCard = () => {
     const thumbs = el('span', 'kz-card__thumbs');
-    const card = el('div', 'kz-card', {}, [el('span', 'kz-card__label', {}, ['Vstup: produktová fotka']), thumbs]);
+    const card = el('div', 'kz-card', {}, [el('span', 'kz-card__label', {}, ['Vaše fotka']), thumbs]);
     const set = (o) => {
       thumbs.replaceChildren(...outfit(o).kusy.map((url) => el('img', '', { src: url, width: 240, height: 240, alt: '', decoding: 'async' })));
       if (!reduced) scan(card);
@@ -234,7 +234,7 @@ function init(root, data) {
 
   const footer = () => {
     const pieces = new Set(outfity.flatMap((o) => o.kusy)).size;
-    root.append(el('p', 'kz-count', {}, [`${modelky.length} modelek × ${outfity.length} outfitů × ${pozy.length} pózy, vše z ${pieces} produktových fotek`]));
+    root.append(el('p', 'kz-count', {}, [`${modelky.length * outfity.length * pozy.length} kombinací z ${pieces} obyčejných fotek produktů`]));
     if (location.hostname === 'www.bezmodelky.cz' && !params.has('karusel')) return;
     // Přepínač variant jen pro náhled (Vercel preview, lokálně nebo s ?karusel=)
     root.append(el('nav', 'kz-switch', { 'aria-label': 'Varianta karuselu (jen náhled)' }, [
@@ -399,7 +399,7 @@ function init(root, data) {
 
     const products = el('span', 'kz-c__products');
     const head = el('div', 'kz-c__head', {}, [
-      el('span', 'kz-c__in', {}, [el('span', 'kz-c__cap', {}, ['1 produktová fotka']), products]),
+      el('span', 'kz-c__in', {}, [el('span', 'kz-c__cap', {}, ['1 fotka produktu']), products]),
       el('span', 'kz-c__arrow', { 'aria-hidden': 'true' }, ['→']),
       el('span', 'kz-c__out', {}, [el('strong', '', {}, [String(modelky.length)]), ' modelek, ', el('br'), 'různé postavy i prostředí']),
     ]);

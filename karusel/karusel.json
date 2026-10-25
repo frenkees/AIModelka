@@ -401,7 +401,7 @@
   {
    "id": "04_sofia",
    "jmeno": "Sofia",
-   "postava": "křivky (přesýpací hodiny)",
+   "postava": "přesýpací hodiny",
    "prostredi": "středomořská terasa",
    "zaklad": [
     {
@@ -7456,7 +7456,7 @@
    "modelka": "04_sofia",
    "outfit": "01_letni_saty",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Letní květinové šaty, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Letní květinové šaty, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -7490,7 +7490,7 @@
    "modelka": "04_sofia",
    "outfit": "01_letni_saty",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Letní květinové šaty, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Letní květinové šaty, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -7524,7 +7524,7 @@
    "modelka": "04_sofia",
    "outfit": "01_letni_saty",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Letní květinové šaty, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Letní květinové šaty, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -7558,7 +7558,7 @@
    "modelka": "04_sofia",
    "outfit": "01_letni_saty",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Letní květinové šaty, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Letní květinové šaty, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -7592,7 +7592,7 @@
    "modelka": "04_sofia",
    "outfit": "02_male_cerne",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Malé černé, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Malé černé, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -7626,7 +7626,7 @@
    "modelka": "04_sofia",
    "outfit": "02_male_cerne",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Malé černé, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Malé černé, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -7660,7 +7660,7 @@
    "modelka": "04_sofia",
    "outfit": "02_male_cerne",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Malé černé, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Malé černé, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -7694,7 +7694,7 @@
    "modelka": "04_sofia",
    "outfit": "02_male_cerne",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Malé černé, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Malé černé, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -7728,7 +7728,7 @@
    "modelka": "04_sofia",
    "outfit": "03_zavinovaci_saty",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Zavinovací šaty, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Zavinovací šaty, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -7762,7 +7762,7 @@
    "modelka": "04_sofia",
    "outfit": "03_zavinovaci_saty",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Zavinovací šaty, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Zavinovací šaty, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -7796,7 +7796,7 @@
    "modelka": "04_sofia",
    "outfit": "03_zavinovaci_saty",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Zavinovací šaty, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Zavinovací šaty, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -7830,7 +7830,7 @@
    "modelka": "04_sofia",
    "outfit": "03_zavinovaci_saty",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Zavinovací šaty, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Zavinovací šaty, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -7864,7 +7864,7 @@
    "modelka": "04_sofia",
    "outfit": "04_satenove_saty",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Saténové šaty, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Saténové šaty, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -7898,7 +7898,7 @@
    "modelka": "04_sofia",
    "outfit": "04_satenove_saty",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Saténové šaty, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Saténové šaty, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -7932,7 +7932,7 @@
    "modelka": "04_sofia",
    "outfit": "04_satenove_saty",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Saténové šaty, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Saténové šaty, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -7966,7 +7966,7 @@
    "modelka": "04_sofia",
    "outfit": "04_satenove_saty",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Saténové šaty, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Saténové šaty, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -8000,7 +8000,7 @@
    "modelka": "04_sofia",
    "outfit": "05_tricko_dziny",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Bílé triko a rovné džíny, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Bílé triko a rovné džíny, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -8034,7 +8034,7 @@
    "modelka": "04_sofia",
    "outfit": "05_tricko_dziny",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Bílé triko a rovné džíny, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Bílé triko a rovné džíny, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -8068,7 +8068,7 @@
    "modelka": "04_sofia",
    "outfit": "05_tricko_dziny",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Bílé triko a rovné džíny, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Bílé triko a rovné džíny, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -8102,7 +8102,7 @@
    "modelka": "04_sofia",
    "outfit": "05_tricko_dziny",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Bílé triko a rovné džíny, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Bílé triko a rovné džíny, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -8136,7 +8136,7 @@
    "modelka": "04_sofia",
    "outfit": "06_halenka_kalhoty",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Hedvábná halenka a společenské kalhoty, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Hedvábná halenka a společenské kalhoty, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -8170,7 +8170,7 @@
    "modelka": "04_sofia",
    "outfit": "06_halenka_kalhoty",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Hedvábná halenka a společenské kalhoty, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Hedvábná halenka a společenské kalhoty, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -8204,7 +8204,7 @@
    "modelka": "04_sofia",
    "outfit": "06_halenka_kalhoty",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Hedvábná halenka a společenské kalhoty, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Hedvábná halenka a společenské kalhoty, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -8238,7 +8238,7 @@
    "modelka": "04_sofia",
    "outfit": "06_halenka_kalhoty",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Hedvábná halenka a společenské kalhoty, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Hedvábná halenka a společenské kalhoty, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -8272,7 +8272,7 @@
    "modelka": "04_sofia",
    "outfit": "07_pruhy_culottes",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Pruhované triko a culottes, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Pruhované triko a culottes, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -8306,7 +8306,7 @@
    "modelka": "04_sofia",
    "outfit": "07_pruhy_culottes",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Pruhované triko a culottes, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Pruhované triko a culottes, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -8340,7 +8340,7 @@
    "modelka": "04_sofia",
    "outfit": "07_pruhy_culottes",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Pruhované triko a culottes, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Pruhované triko a culottes, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -8374,7 +8374,7 @@
    "modelka": "04_sofia",
    "outfit": "07_pruhy_culottes",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Pruhované triko a culottes, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Pruhované triko a culottes, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -8408,7 +8408,7 @@
    "modelka": "04_sofia",
    "outfit": "08_oxford_chino",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Oxford košile a chino kalhoty, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Oxford košile a chino kalhoty, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -8442,7 +8442,7 @@
    "modelka": "04_sofia",
    "outfit": "08_oxford_chino",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Oxford košile a chino kalhoty, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Oxford košile a chino kalhoty, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -8476,7 +8476,7 @@
    "modelka": "04_sofia",
    "outfit": "08_oxford_chino",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Oxford košile a chino kalhoty, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Oxford košile a chino kalhoty, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -8510,7 +8510,7 @@
    "modelka": "04_sofia",
    "outfit": "08_oxford_chino",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Oxford košile a chino kalhoty, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Oxford košile a chino kalhoty, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -8544,7 +8544,7 @@
    "modelka": "04_sofia",
    "outfit": "09_svetr_mom",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Copánkový svetr a mom džíny, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Copánkový svetr a mom džíny, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -8578,7 +8578,7 @@
    "modelka": "04_sofia",
    "outfit": "09_svetr_mom",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Copánkový svetr a mom džíny, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Copánkový svetr a mom džíny, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -8612,7 +8612,7 @@
    "modelka": "04_sofia",
    "outfit": "09_svetr_mom",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Copánkový svetr a mom džíny, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Copánkový svetr a mom džíny, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -8646,7 +8646,7 @@
    "modelka": "04_sofia",
    "outfit": "09_svetr_mom",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Copánkový svetr a mom džíny, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Copánkový svetr a mom džíny, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -8680,7 +8680,7 @@
    "modelka": "04_sofia",
    "outfit": "10_tilko_plise",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Saténové tílko a plisovaná sukně, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Saténové tílko a plisovaná sukně, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -8714,7 +8714,7 @@
    "modelka": "04_sofia",
    "outfit": "10_tilko_plise",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Saténové tílko a plisovaná sukně, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Saténové tílko a plisovaná sukně, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -8748,7 +8748,7 @@
    "modelka": "04_sofia",
    "outfit": "10_tilko_plise",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Saténové tílko a plisovaná sukně, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Saténové tílko a plisovaná sukně, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -8782,7 +8782,7 @@
    "modelka": "04_sofia",
    "outfit": "10_tilko_plise",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Saténové tílko a plisovaná sukně, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Saténové tílko a plisovaná sukně, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -8816,7 +8816,7 @@
    "modelka": "04_sofia",
    "outfit": "11_rolak_tartan",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Rolák a kostkovaná sukně, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Rolák a kostkovaná sukně, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -8850,7 +8850,7 @@
    "modelka": "04_sofia",
    "outfit": "11_rolak_tartan",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Rolák a kostkovaná sukně, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Rolák a kostkovaná sukně, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -8884,7 +8884,7 @@
    "modelka": "04_sofia",
    "outfit": "11_rolak_tartan",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Rolák a kostkovaná sukně, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Rolák a kostkovaná sukně, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -8918,7 +8918,7 @@
    "modelka": "04_sofia",
    "outfit": "11_rolak_tartan",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Rolák a kostkovaná sukně, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Rolák a kostkovaná sukně, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -8952,7 +8952,7 @@
    "modelka": "04_sofia",
    "outfit": "12_kardigan_len",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Kardigan a lněná sukně, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Kardigan a lněná sukně, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -8986,7 +8986,7 @@
    "modelka": "04_sofia",
    "outfit": "12_kardigan_len",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Kardigan a lněná sukně, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Kardigan a lněná sukně, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -9020,7 +9020,7 @@
    "modelka": "04_sofia",
    "outfit": "12_kardigan_len",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Kardigan a lněná sukně, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Kardigan a lněná sukně, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -9054,7 +9054,7 @@
    "modelka": "04_sofia",
    "outfit": "12_kardigan_len",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Kardigan a lněná sukně, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Kardigan a lněná sukně, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -9088,7 +9088,7 @@
    "modelka": "04_sofia",
    "outfit": "13_sport",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Sportovní komplet, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Sportovní komplet, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -9122,7 +9122,7 @@
    "modelka": "04_sofia",
    "outfit": "13_sport",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Sportovní komplet, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Sportovní komplet, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -9156,7 +9156,7 @@
    "modelka": "04_sofia",
    "outfit": "13_sport",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Sportovní komplet, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Sportovní komplet, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -9190,7 +9190,7 @@
    "modelka": "04_sofia",
    "outfit": "13_sport",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Sportovní komplet, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Sportovní komplet, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -9224,7 +9224,7 @@
    "modelka": "04_sofia",
    "outfit": "14_trenc_dziny",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Trenčkot a skinny džíny, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Trenčkot a skinny džíny, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -9258,7 +9258,7 @@
    "modelka": "04_sofia",
    "outfit": "14_trenc_dziny",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Trenčkot a skinny džíny, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Trenčkot a skinny džíny, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -9292,7 +9292,7 @@
    "modelka": "04_sofia",
    "outfit": "14_trenc_dziny",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Trenčkot a skinny džíny, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Trenčkot a skinny džíny, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -9326,7 +9326,7 @@
    "modelka": "04_sofia",
    "outfit": "14_trenc_dziny",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Trenčkot a skinny džíny, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Trenčkot a skinny džíny, póza přes rameno",
    "obrazky": [
     {
      "w": 416,
@@ -9360,7 +9360,7 @@
    "modelka": "04_sofia",
    "outfit": "15_kozena_mini",
    "poza": 1,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Křivák a džínová mini, póza zepředu",
+   "alt": "Sofia (přesýpací hodiny) – Křivák a džínová mini, póza zepředu",
    "obrazky": [
     {
      "w": 416,
@@ -9394,7 +9394,7 @@
    "modelka": "04_sofia",
    "outfit": "15_kozena_mini",
    "poza": 2,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Křivák a džínová mini, póza ruka v bok",
+   "alt": "Sofia (přesýpací hodiny) – Křivák a džínová mini, póza ruka v bok",
    "obrazky": [
     {
      "w": 416,
@@ -9428,7 +9428,7 @@
    "modelka": "04_sofia",
    "outfit": "15_kozena_mini",
    "poza": 3,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Křivák a džínová mini, póza v chůzi",
+   "alt": "Sofia (přesýpací hodiny) – Křivák a džínová mini, póza v chůzi",
    "obrazky": [
     {
      "w": 416,
@@ -9462,7 +9462,7 @@
    "modelka": "04_sofia",
    "outfit": "15_kozena_mini",
    "poza": 4,
-   "alt": "Sofia (křivky (přesýpací hodiny)) – Křivák a džínová mini, póza přes rameno",
+   "alt": "Sofia (přesýpací hodiny) – Křivák a džínová mini, póza přes rameno",
    "obrazky": [
     {
      "w": 416,

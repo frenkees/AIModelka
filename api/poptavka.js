@@ -7,7 +7,7 @@ import {
   readJson, sameOrigin, signPath, withinLimits,
 } from './_lib.js';
 
-const STYLES = ['Ateliér', 'High Fashion', 'Street', 'Letní', 'Outdoor', 'Nechám na vás'];
+const STYLES = ['Ateliér', 'Interiér', 'Ulice', 'Terasa', 'Příroda', 'Nechám na vás'];
 const MODELS = ['Žena', 'Muž', 'Dítě', 'Nechám na vás'];
 const LINK_TTL_MS = 30 * 24 * 60 * 60 * 1000;
 
