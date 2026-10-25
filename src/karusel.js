@@ -3,15 +3,15 @@
 //   a = Šatna: vyberete oblečení a modelku, tažením do stran měníte pózu
 //   b = Před/po: posuvník mezi modelkou v body a modelkou v oblečení
 //   c = Jedna fotka, šest modelek: produkt se „oblékne“ na všech šest postav naráz
+import { t } from './i18n.js';
+
 const SIZES = '(min-width: 1024px) 400px, (min-width: 488px) 448px, 92vw';
 const TILE_SIZES = '(min-width: 1024px) 130px, 30vw';
 const START = { m: '04_sofia', o: '01_letni_saty', p: 1 };
 const TILE_POSES = [1, 2, 3, 3, 2, 1];
 const STEP_MS = 3400; // tempo ukázkového přehrávání
 const MAX_STEPS = 14; // pak se přehrávání zastaví, ať zbytečně nestahujeme data
-const VARIANTS = { a: 'Šatna', b: 'Před/po', c: '6 modelek' };
-import { t } from './i18n.js';
-
+const VARIANTS = { a: t('Šatna'), b: t('Před/po'), c: t('6 modelek') };
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const ICON = {
@@ -243,8 +243,8 @@ function init(root, data) {
     root.append(el('p', 'kz-count', {}, [t('{n} kombinací z {k} obyčejných fotek produktů', { n: modelky.length * outfity.length * pozy.length, k: pieces })]));
     if (location.hostname === 'www.bezmodelky.cz' && !params.has('karusel')) return;
     // Přepínač variant jen pro náhled (Vercel preview, lokálně nebo s ?karusel=)
-    root.append(el('nav', 'kz-switch', { 'aria-label': 'Varianta karuselu (jen náhled)' }, [
-      'Náhled varianty:',
+    root.append(el('nav', 'kz-switch', { 'aria-label': t('Varianta karuselu (jen náhled)') }, [
+      t('Náhled varianty:'),
       ...Object.entries(VARIANTS).map(([k, name]) => el('a', '', { href: `?karusel=${k}`, 'aria-current': k === variant ? 'true' : 'false' }, [`${k.toUpperCase()} ${name}`])),
     ]));
   };
