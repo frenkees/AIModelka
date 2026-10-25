@@ -1,5 +1,6 @@
 // Sestaví produkční web do dist/ – jen soubory, které web skutečně používá.
 import { cp, rm, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { stripMetadata } from './strip-metadata.mjs';
 
 const OUT = 'dist';
 const files = [
@@ -27,6 +28,9 @@ await cp('assets', `${OUT}/assets`, { recursive: true });
 await cp('karusel/web', `${OUT}/karusel/web`, { recursive: true });
 const karusel = JSON.parse(await readFile('karusel/karusel.json', 'utf8'));
 await writeFile(`${OUT}/karusel/data.json`, JSON.stringify(karuselData(karusel)));
+
+// Pojistka: na web nesmí odejít žádná metadata obrázků (EXIF, poznámky, workflow z ComfyUI…)
+await stripMetadata([OUT], { quiet: true });
 
 console.log(`dist/ připraven (${files.length} souborů + assets/ + karusel/)`);
 
