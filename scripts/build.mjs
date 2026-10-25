@@ -1,5 +1,7 @@
 // Sestaví produkční web do dist/ – jen soubory, které web skutečně používá.
 import { cp, rm, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { stripMetadata } from './strip-metadata.mjs';
 import { buildPages } from './i18n.mjs';
 
@@ -44,7 +46,9 @@ function karuselData(k) {
     for (const o of s.obrazky) {
       if (o.url !== `${base}-${o.w}.webp`) throw new Error(`karusel.json: nečekaná URL ${o.url}`);
     }
-    return [base, s.obrazky.at(-1).h];
+    // Otisk největší varianty – všechny šířky vznikají z jednoho PNG naráz
+    const v = createHash('sha1').update(readFileSync(`${base.replace(/^\//, '')}-${s.obrazky.at(-1).w}.webp`)).digest('hex').slice(0, 8);
+    return [base, s.obrazky.at(-1).h, v];
   };
   return {
     sirky: k.sirky,

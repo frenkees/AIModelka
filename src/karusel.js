@@ -34,15 +34,17 @@ const iconBtn = (cls, label, icon) => {
   return b;
 };
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
-const srcset = (base, widths) => widths.map((w) => `${base}-${w}.webp ${w}w`).join(', ');
-const image = ([base, height], sizes, widths, alt = '') =>
-  el('img', '', { src: `${base}-${widths.at(-2) ?? widths[0]}.webp`, srcset: srcset(base, widths), sizes, width: 832, height, alt, decoding: 'async' });
+// shot = [základ cesty, výška, otisk obsahu] – otisk v URL obejde mezipaměť po výměně snímku
+const url = ([base, , v], w) => `${base}-${w}.webp?v=${v}`;
+const srcset = (shot, widths) => widths.map((w) => `${url(shot, w)} ${w}w`).join(', ');
+const image = (shot, sizes, widths, alt = '') =>
+  el('img', '', { src: url(shot, widths.at(-2) ?? widths[0]), srcset: srcset(shot, widths), sizes, width: 832, height: shot[1], alt, decoding: 'async' });
 const ready = (img) => img.decode().catch(() => {});
 const prefetch = (shot, sizes, widths) => {
   if (!shot) return;
   const img = new Image();
   img.sizes = sizes;
-  img.srcset = srcset(shot[0], widths);
+  img.srcset = srcset(shot, widths);
 };
 // Znovu spustí CSS animaci „skenovací“ linky přes element
 const scan = (node) => {
@@ -139,7 +141,7 @@ function init(root, data) {
     const rail = el('div', 'kz-rail', { role: 'group', 'aria-label': t('Modelka') });
     const buttons = modelky.map((m) => {
       const b = el('button', 'kz-avatar', { type: 'button', 'aria-pressed': 'false', 'aria-label': t('Modelka {jmeno}, postava {postava}', { jmeno: m.jmeno, postava: m.postava }), 'data-id': m.id, 'data-name': m.jmeno });
-      b.append(el('img', '', { src: `${m.zaklad[1][0]}-200.webp`, width: 200, height: 296, alt: '', decoding: 'async' }));
+      b.append(el('img', '', { src: url(m.zaklad[1], 200), width: 200, height: 296, alt: '', decoding: 'async' }));
       b.addEventListener('click', () => onPick(m.id));
       return b;
     });
