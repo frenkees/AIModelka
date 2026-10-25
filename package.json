@@ -8,6 +8,7 @@
     "dev": "node scripts/build.mjs && tailwindcss -i src/input.css -o dist/styles.css --watch",
     "images": "node scripts/optimize-images.mjs",
     "images:clean": "node scripts/strip-metadata.mjs",
+    "images:og": "node scripts/og-images.mjs && node scripts/strip-metadata.mjs og-image.jpg og-image-en.jpg og-image-sk.jpg og-image-de.jpg og-image-zh.jpg",
     "build:js": "esbuild src/upload.js src/karusel.js --bundle --splitting --format=esm --minify --target=es2020 --outdir=dist/assets/js"
   },
   "repository": {

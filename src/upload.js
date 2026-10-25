@@ -1,4 +1,6 @@
 // Formulář „Fotka zdarma“: kontrola kontaktu, příprava fotek v prohlížeči a bezpečné nahrání.
+import { lang, t } from './i18n.js';
+
 const MAX_FILES = 3;
 const MAX_BYTES = 4 * 1024 * 1024; // limit serveru (Vercel Functions přijmou max. 4,5 MB)
 const MAX_EDGE = 3000; // delší strana po zmenšení (px)
@@ -37,10 +39,10 @@ function init(form) {
     input.disabled = !unlocked || files.length >= MAX_FILES;
     dropzone.toggleAttribute('data-locked', !unlocked);
     hint.textContent = !unlocked
-      ? 'Nejdřív vyplňte e-mail a telefon.'
+      ? t('Nejdřív vyplňte e-mail a telefon.')
       : files.length >= MAX_FILES
-        ? 'Máte vybrané maximum 3 fotek.'
-        : 'JPG, PNG nebo WebP. Velké fotky z mobilu automaticky zmenšíme.';
+        ? t('Máte vybrané maximum 3 fotek.')
+        : t('JPG, PNG nebo WebP. Velké fotky z mobilu automaticky zmenšíme.');
   };
   email.addEventListener('input', updateLock);
   phone.addEventListener('input', updateLock);
@@ -52,12 +54,12 @@ function init(form) {
       li.className = 'relative overflow-hidden rounded-xl border border-line bg-sand';
       const img = document.createElement('img');
       img.src = item.url;
-      img.alt = `Vybraná fotka ${i + 1}`;
+      img.alt = t('Vybraná fotka {i}', { i: i + 1 });
       img.className = 'aspect-square w-full object-cover';
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'absolute top-1.5 right-1.5 grid h-7 w-7 place-items-center rounded-full bg-white/90 text-ink shadow';
-      btn.setAttribute('aria-label', `Odebrat fotku ${i + 1}`);
+      btn.setAttribute('aria-label', t('Odebrat fotku {i}', { i: i + 1 }));
       btn.textContent = '×';
       btn.addEventListener('click', () => {
         URL.revokeObjectURL(item.url);
@@ -74,7 +76,7 @@ function init(form) {
     setStatus(null, '');
     for (const file of list) {
       if (files.length >= MAX_FILES) {
-        setStatus('error', 'Nahrát můžete maximálně 3 fotky jednoho produktu.');
+        setStatus('error', t('Nahrát můžete maximálně 3 fotky jednoho produktu.'));
         break;
       }
       try {
@@ -104,9 +106,9 @@ function init(form) {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (!validEmail()) return fail('Zadejte prosím platný e-mail.', email);
-    if (!validPhone()) return fail('Zadejte prosím platné telefonní číslo (např. +420 777 123 456).', phone);
-    if (!files.length) return fail('Nahrajte prosím alespoň jednu fotku produktu.', input);
+    if (!validEmail()) return fail(t('Zadejte prosím platný e-mail.'), email);
+    if (!validPhone()) return fail(t('Zadejte prosím platné telefonní číslo (např. +420 777 123 456).'), phone);
+    if (!files.length) return fail(t('Nahrajte prosím alespoň jednu fotku produktu.'), input);
 
     const label = submit.textContent;
     submit.disabled = true;
@@ -117,18 +119,18 @@ function init(form) {
     try {
       const pathnames = [];
       for (const [i, item] of files.entries()) {
-        submit.textContent = `Nahrávám fotku ${i + 1} z ${files.length}…`;
+        submit.textContent = t('Nahrávám fotku {i} z {n}…', { i: i + 1, n: files.length });
         pathnames.push(await uploadPhoto(item.blob, { email: data.email, phone: data.phone, ...guard, leadId, index: i + 1 }));
       }
 
-      submit.textContent = 'Odesílám…';
+      submit.textContent = t('Odesílám…');
       const res = await fetch('/api/poptavka', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, ...guard, leadId, files: pathnames }),
+        body: JSON.stringify({ ...data, ...guard, leadId, lang, files: pathnames }),
       });
       const body = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(body.error || 'Odeslání se nepovedlo.');
+      if (!res.ok) throw new Error(t(body.error || 'Odeslání se nepovedlo.'));
 
       // E-mailová notifikace (poptávka je už bezpečně uložená, případná chyba zde nevadí)
       await fetch('https://api.web3forms.com/submit', {
@@ -146,6 +148,7 @@ function init(form) {
           Prostředí: data.style,
           Modelka: data.model,
           Poznámka: data.note,
+          Jazyk: lang,
           Fotky: body.links.join('\n'),
         }),
       }).catch(() => {});
@@ -157,7 +160,7 @@ function init(form) {
     } catch (err) {
       fail(err?.message && !/fetch|network/i.test(err.message)
         ? err.message
-        : 'Nahrání se nepovedlo. Zkontrolujte připojení a zkuste to znovu.');
+        : t('Nahrání se nepovedlo. Zkontrolujte připojení a zkuste to znovu.'));
     } finally {
       submit.disabled = false;
       submit.textContent = label;
@@ -177,20 +180,20 @@ async function uploadPhoto(blob, fields) {
   body.append('photo', blob, 'photo.jpg');
   const res = await fetch('/api/upload', { method: 'POST', body });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok || !data.pathname) throw new Error(data.error || 'Nahrání se nepovedlo, zkuste to prosím znovu.');
+  if (!res.ok || !data.pathname) throw new Error(t(data.error || 'Nahrání se nepovedlo, zkuste to prosím znovu.'));
   return data.pathname;
 }
 
 // Fotku překreslí do JPEG: odstraní metadata (GPS apod.), otočí podle EXIF a zmenší pod 4 MB.
 async function prepareImage(file) {
   const isImage = ALLOWED.includes(file.type) || /\.(jpe?g|png|webp|heic|heif)$/i.test(file.name);
-  if (!isImage) throw new Error(`„${file.name}“ není fotka. Použijte JPG, PNG nebo WebP.`);
+  if (!isImage) throw new Error(t('„{name}“ není fotka. Použijte JPG, PNG nebo WebP.', { name: file.name }));
 
   let bitmap;
   try {
     bitmap = await createImageBitmap(file, { imageOrientation: 'from-image' });
   } catch {
-    throw new Error(`Fotku „${file.name}“ se nepodařilo načíst. Zkuste ji uložit jako JPG.`);
+    throw new Error(t('Fotku „{name}“ se nepodařilo načíst. Zkuste ji uložit jako JPG.', { name: file.name }));
   }
 
   let scale = Math.min(1, MAX_EDGE / Math.max(bitmap.width, bitmap.height));
@@ -212,5 +215,5 @@ async function prepareImage(file) {
     scale *= 0.85;
   }
   bitmap.close();
-  throw new Error(`Fotka „${file.name}“ je příliš velká. Zkuste menší rozlišení.`);
+  throw new Error(t('Fotka „{name}“ je příliš velká. Zkuste menší rozlišení.', { name: file.name }));
 }

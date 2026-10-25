@@ -10,6 +10,8 @@ const TILE_POSES = [1, 2, 3, 3, 2, 1];
 const STEP_MS = 3400; // tempo ukázkového přehrávání
 const MAX_STEPS = 14; // pak se přehrávání zastaví, ať zbytečně nestahujeme data
 const VARIANTS = { a: 'Šatna', b: 'Před/po', c: '6 modelek' };
+import { t } from './i18n.js';
+
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const ICON = {
@@ -59,6 +61,10 @@ if (root) {
 
 function init(root, data) {
   const { modelky, outfity, snimky, pozy } = data;
+  // Názvy z dat jsou česky, na cizojazyčné stránce je přeložíme jednou při startu
+  modelky.forEach((m) => { m.postava = t(m.postava); });
+  outfity.forEach((o) => { o.nazev = t(o.nazev); });
+  pozy.forEach((x) => { x.nazev = t(x.nazev); });
   const W = data.sirky;
   const WT = [200, ...data.sirky];
   const stage = root.querySelector('.kz-stage');
@@ -70,7 +76,7 @@ function init(root, data) {
   const poza = (p) => pozy.find((x) => x.id === p)?.nazev ?? '';
   // Chybějící snímek (vyřazený kontrolou kvality) nahradí jiná póza téhož outfitu
   const shotOf = (m, o, p) => snimky[`${m}|${o}|${p}`] ?? pozy.map((x) => snimky[`${m}|${o}|${x.id}`]).find(Boolean);
-  const altOf = (m, o, p) => `AI modelka ${modelka(m).jmeno}, postava ${modelka(m).postava}: ${outfit(o).nazev}, póza ${poza(p)}`;
+  const altOf = (m, o, p) => t('AI modelka {jmeno}, postava {postava}: {nazev}, póza {poza}', { jmeno: modelka(m).jmeno, postava: modelka(m).postava, nazev: outfit(o).nazev, poza: poza(p) });
   const cycle = (list, cur, dir = 1) => list[(list.indexOf(cur) + dir + list.length) % list.length];
   const poseIds = pozy.map((x) => x.id);
   const modelIds = modelky.map((m) => m.id);
@@ -106,16 +112,16 @@ function init(root, data) {
   };
 
   const outfitPicker = (onPick) => {
-    const strip = el('div', 'kz-strip', { role: 'group', 'aria-label': 'Oblečení' });
+    const strip = el('div', 'kz-strip', { role: 'group', 'aria-label': t('Oblečení') });
     const buttons = outfity.map((o) => {
-      const b = el('button', 'kz-chip', { type: 'button', 'aria-pressed': 'false', 'aria-label': `Oblečení: ${o.nazev}`, title: o.nazev, 'data-id': o.id });
+      const b = el('button', 'kz-chip', { type: 'button', 'aria-pressed': 'false', 'aria-label': t('Oblečení: {nazev}', { nazev: o.nazev }), title: o.nazev, 'data-id': o.id });
       o.kusy.forEach((url, i) => b.append(el('img', i ? 'kz-chip__second' : '', { src: url, width: 240, height: 240, alt: '', loading: 'lazy', decoding: 'async' })));
       b.addEventListener('click', () => onPick(o.id));
       return b;
     });
     strip.append(...buttons);
     const wrap = el('div', 'kz-pick', {}, [
-      el('p', 'kz-label', {}, [el('span', 'kz-label__dot', { 'aria-hidden': 'true' }), el('span', '', {}, ['Vyberte oblečení']), el('span', 'kz-label__hint', {}, ['vaše fotka → AI modelka'])]),
+      el('p', 'kz-label', {}, [el('span', 'kz-label__dot', { 'aria-hidden': 'true' }), el('span', '', {}, [t('Vyberte oblečení')]), el('span', 'kz-label__hint', {}, [t('vaše fotka → AI modelka')])]),
       strip,
     ]);
     const setActive = (id) => buttons.forEach((b) => {
@@ -130,9 +136,9 @@ function init(root, data) {
   };
 
   const modelRail = (onPick) => {
-    const rail = el('div', 'kz-rail', { role: 'group', 'aria-label': 'Modelka' });
+    const rail = el('div', 'kz-rail', { role: 'group', 'aria-label': t('Modelka') });
     const buttons = modelky.map((m) => {
-      const b = el('button', 'kz-avatar', { type: 'button', 'aria-pressed': 'false', 'aria-label': `Modelka ${m.jmeno}, postava ${m.postava}`, 'data-id': m.id, 'data-name': m.jmeno });
+      const b = el('button', 'kz-avatar', { type: 'button', 'aria-pressed': 'false', 'aria-label': t('Modelka {jmeno}, postava {postava}', { jmeno: m.jmeno, postava: m.postava }), 'data-id': m.id, 'data-name': m.jmeno });
       b.append(el('img', '', { src: `${m.zaklad[1][0]}-200.webp`, width: 200, height: 296, alt: '', decoding: 'async' }));
       b.addEventListener('click', () => onPick(m.id));
       return b;
@@ -144,12 +150,12 @@ function init(root, data) {
 
   const posePill = (onStep) => {
     const label = el('span', 'kz-pose__label');
-    const prev = iconBtn('kz-pose__btn', 'Předchozí póza', ICON.prev);
-    const next = iconBtn('kz-pose__btn', 'Další póza', ICON.next);
+    const prev = iconBtn('kz-pose__btn', t('Předchozí póza'), ICON.prev);
+    const next = iconBtn('kz-pose__btn', t('Další póza'), ICON.next);
     prev.addEventListener('click', () => onStep(-1));
     next.addEventListener('click', () => onStep(1));
     const dots = el('span', 'kz-pose__dots', { 'aria-hidden': 'true' }, poseIds.map(() => el('i')));
-    const pill = el('div', 'kz-pose', { role: 'group', 'aria-label': 'Póza' }, [prev, el('span', 'kz-pose__mid', {}, [label, dots]), next]);
+    const pill = el('div', 'kz-pose', { role: 'group', 'aria-label': t('Póza') }, [prev, el('span', 'kz-pose__mid', {}, [label, dots]), next]);
     const set = (p) => {
       label.textContent = poza(p);
       [...dots.children].forEach((d, i) => d.toggleAttribute('data-on', poseIds[i] === p));
@@ -159,7 +165,7 @@ function init(root, data) {
 
   const inputCard = () => {
     const thumbs = el('span', 'kz-card__thumbs');
-    const card = el('div', 'kz-card', {}, [el('span', 'kz-card__label', {}, ['Vaše fotka']), thumbs]);
+    const card = el('div', 'kz-card', {}, [el('span', 'kz-card__label', {}, [t('Vaše fotka')]), thumbs]);
     const set = (o) => {
       thumbs.replaceChildren(...outfit(o).kusy.map((url) => el('img', '', { src: url, width: 240, height: 240, alt: '', decoding: 'async' })));
       if (!reduced) scan(card);
@@ -168,8 +174,8 @@ function init(root, data) {
   };
 
   const tag = () => {
-    const t = el('span', 'kz-tag', { 'aria-hidden': 'true' });
-    return { el: t, set: (m) => { t.textContent = `${modelka(m).jmeno} · ${modelka(m).postava}`; } };
+    const node = el('span', 'kz-tag', { 'aria-hidden': 'true' });
+    return { el: node, set: (m) => { node.textContent = `${modelka(m).jmeno} · ${modelka(m).postava}`; } };
   };
 
   // Vodorovné tažení po snímku (swipe) přepíná pózu
@@ -234,7 +240,7 @@ function init(root, data) {
 
   const footer = () => {
     const pieces = new Set(outfity.flatMap((o) => o.kusy)).size;
-    root.append(el('p', 'kz-count', {}, [`${modelky.length * outfity.length * pozy.length} kombinací z ${pieces} obyčejných fotek produktů`]));
+    root.append(el('p', 'kz-count', {}, [t('{n} kombinací z {k} obyčejných fotek produktů', { n: modelky.length * outfity.length * pozy.length, k: pieces })]));
     if (location.hostname === 'www.bezmodelky.cz' && !params.has('karusel')) return;
     // Přepínač variant jen pro náhled (Vercel preview, lokálně nebo s ?karusel=)
     root.append(el('nav', 'kz-switch', { 'aria-label': 'Varianta karuselu (jen náhled)' }, [
@@ -300,11 +306,11 @@ function init(root, data) {
     layers.prepend(before);
     stage.classList.add('kz-stage--compare');
 
-    const range = el('input', 'kz-range', { type: 'range', min: 0, max: 100, value: 50, 'aria-label': 'Porovnání před a po: posuňte pro zobrazení oblečení na modelce' });
+    const range = el('input', 'kz-range', { type: 'range', min: 0, max: 100, value: 50, 'aria-label': t('Porovnání před a po: posuňte pro zobrazení oblečení na modelce') });
     const knob = el('span', 'kz-knob');
     knob.innerHTML = ICON.both;
-    const handle = el('div', 'kz-handle', { 'aria-hidden': 'true' }, [knob, el('span', 'kz-bubble', {}, ['Táhněte'])]);
-    const labels = [el('span', 'kz-side kz-side--l', { 'aria-hidden': 'true' }, ['AI modelka']), el('span', 'kz-side kz-side--r', { 'aria-hidden': 'true' }, ['S vaším oblečením'])];
+    const handle = el('div', 'kz-handle', { 'aria-hidden': 'true' }, [knob, el('span', 'kz-bubble', {}, [t('Táhněte')])]);
+    const labels = [el('span', 'kz-side kz-side--l', { 'aria-hidden': 'true' }, [t('AI modelka')]), el('span', 'kz-side kz-side--r', { 'aria-hidden': 'true' }, [t('S vaším oblečením')])];
     const rail = modelRail((m) => { if (m !== st.m) { st.m = m; show(); } });
     const pose = posePill((dir) => { st.p = cycle(poseIds, st.p, dir); show(); });
     const card = inputCard();
@@ -360,12 +366,12 @@ function init(root, data) {
       const alt = altOf(st.m, st.o, st.p);
       live.textContent = alt;
       const imgs = [
-        image(modelka(st.m).zaklad[st.p] ?? modelka(st.m).zaklad[1], SIZES, W, `AI modelka ${modelka(st.m).jmeno} v tělovém body, póza ${poza(st.p)}`),
+        image(modelka(st.m).zaklad[st.p] ?? modelka(st.m).zaklad[1], SIZES, W, t('AI modelka {jmeno} v tělovém body, póza {poza}', { jmeno: modelka(st.m).jmeno, poza: poza(st.p) })),
         image(shotOf(st.m, st.o, st.p), SIZES, W, alt),
       ];
-      const t = setTimeout(() => stage.setAttribute('data-loading', ''), 220);
+      const loading = setTimeout(() => stage.setAttribute('data-loading', ''), 220);
       await Promise.all(imgs.map(ready));
-      clearTimeout(t);
+      clearTimeout(loading);
       if (my !== seq) return;
       stage.removeAttribute('data-loading');
       before.replaceChildren(imgs[0]);
@@ -382,7 +388,7 @@ function init(root, data) {
     picker.setActive(st.o);
     keys((dir) => userMove(Math.max(0, Math.min(100, +range.value + dir * 5))));
     // Zaklad se načte hned, aby první posun ukázal „před“
-    const first = image(modelka(st.m).zaklad[st.p], SIZES, W, `AI modelka ${modelka(st.m).jmeno} v tělovém body, póza zepředu`);
+    const first = image(modelka(st.m).zaklad[st.p], SIZES, W, t('AI modelka {jmeno} v tělovém body, póza {poza}', { jmeno: modelka(st.m).jmeno, poza: poza(st.p) }));
     ready(first).then(() => {
       before.replaceChildren(first);
       wait(600).then(() => { if (!stage.hasAttribute('data-touched')) sweep([0, 80, 20, 50], 750); });
@@ -399,13 +405,13 @@ function init(root, data) {
 
     const products = el('span', 'kz-c__products');
     const head = el('div', 'kz-c__head', {}, [
-      el('span', 'kz-c__in', {}, [el('span', 'kz-c__cap', {}, ['1 fotka produktu']), products]),
+      el('span', 'kz-c__in', {}, [el('span', 'kz-c__cap', {}, [t('1 fotka produktu')]), products]),
       el('span', 'kz-c__arrow', { 'aria-hidden': 'true' }, ['→']),
-      el('span', 'kz-c__out', {}, [el('strong', '', {}, [String(modelky.length)]), ' modelek, ', el('br'), 'různé postavy i prostředí']),
+      el('span', 'kz-c__out', {}, [el('strong', '', {}, [String(modelky.length)]), ` ${t('modelek,')}`, el('br'), t('různé postavy i prostředí')]),
     ]);
     const tiles = modelky.map((m, i) => {
       const layers = el('div', 'kz-layers');
-      const b = el('button', 'kz-tile', { type: 'button', 'aria-label': `Zvětšit: modelka ${m.jmeno}, postava ${m.postava}` }, [layers, el('span', 'kz-tile__name', { 'aria-hidden': 'true' }, [m.jmeno])]);
+      const b = el('button', 'kz-tile', { type: 'button', 'aria-label': t('Zvětšit: modelka {jmeno}, postava {postava}', { jmeno: m.jmeno, postava: m.postava }) }, [layers, el('span', 'kz-tile__name', { 'aria-hidden': 'true' }, [m.jmeno])]);
       b.addEventListener('click', () => openZoom(m.id, TILE_POSES[i]));
       return { m: m.id, p: TILE_POSES[i], b, swap: swapper(layers, b) };
     });
@@ -420,13 +426,13 @@ function init(root, data) {
       picker.setActive(st.o);
       products.replaceChildren(...outfit(st.o).kusy.map((url) => el('img', '', { src: url, width: 240, height: 240, alt: '', decoding: 'async' })));
       if (!reduced) scan(head);
-      live.textContent = `${outfit(st.o).nazev} na ${modelky.length} AI modelkách`;
+      live.textContent = t('{nazev} na {n} AI modelkách', { nazev: outfit(st.o).nazev, n: modelky.length });
       // Postupné „oblékání“ dlaždic, jedna po druhé
-      tiles.forEach((t, i) => {
-        const img = image(shotOf(t.m, st.o, t.p), TILE_SIZES, WT, altOf(t.m, st.o, t.p));
-        wait(reduced ? 0 : i * 110).then(() => t.swap(img, 'dress'));
+      tiles.forEach((tile, i) => {
+        const img = image(shotOf(tile.m, st.o, tile.p), TILE_SIZES, WT, altOf(tile.m, st.o, tile.p));
+        wait(reduced ? 0 : i * 110).then(() => tile.swap(img, 'dress'));
       });
-      tiles.forEach((t) => prefetch(shotOf(t.m, cycle(outfitIds, st.o), t.p), TILE_SIZES, WT));
+      tiles.forEach((tile) => prefetch(shotOf(tile.m, cycle(outfitIds, st.o), tile.p), TILE_SIZES, WT));
     };
 
     // Zvětšení jedné modelky přes celou scénu, s přepínáním póz
@@ -434,7 +440,7 @@ function init(root, data) {
     const zoomName = tag();
     const zoomSt = { m: null, p: 1 };
     const zoomPose = posePill((dir) => { zoomSt.p = cycle(poseIds, zoomSt.p, dir); zoomShow(dir > 0 ? 'slide-l' : 'slide-r'); });
-    const close = el('button', 'kz-close', { type: 'button' }, ['← Všech 6 modelek']);
+    const close = el('button', 'kz-close', { type: 'button' }, [t('← Všech {n} modelek', { n: modelky.length })]);
     const zoom = el('div', 'kz-zoom', { hidden: '' }, [zoomLayers, zoomName.el, zoomPose.el, close]);
     const zoomSwap = swapper(zoomLayers, zoom);
     stage.append(zoom);

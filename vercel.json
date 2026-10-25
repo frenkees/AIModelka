@@ -80,7 +80,7 @@
       ]
     },
     {
-      "source": "/og-image.jpg",
+      "source": "/og-image(.*).jpg",
       "headers": [
         {
           "key": "Cache-Control",

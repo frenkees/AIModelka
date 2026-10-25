@@ -9,6 +9,7 @@ import {
 
 const STYLES = ['Ateliér', 'Interiér', 'Ulice', 'Terasa', 'Příroda', 'Nechám na vás'];
 const MODELS = ['Žena', 'Muž', 'Dítě', 'Nechám na vás'];
+const LANGS = ['cs', 'en', 'sk', 'de', 'zh-Hans'];
 const LINK_TTL_MS = 30 * 24 * 60 * 60 * 1000;
 
 // Načte metadata a prvních pár bajtů souboru (pro kontrolu skutečného typu)
@@ -78,6 +79,7 @@ export async function POST(request) {
       style: STYLES.includes(body.style) ? body.style : 'Nechám na vás',
       model: MODELS.includes(body.model) ? body.model : 'Nechám na vás',
       note: cleanText(body.note, 2000),
+      lang: LANGS.includes(body.lang) ? body.lang : 'cs',
       files,
     };
     const day = lead.createdAt.slice(0, 10);

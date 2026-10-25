@@ -52,35 +52,7 @@ for (const [src, slug, type] of images) {
   }
 }
 
-// OG obrázek 1200×630
-const ogPhotos = [
-  'high_fashion/ComfyUI_final00001_.png',
-  'summer/ComfyUI_final00001.png',
-];
-const photoW = 210, photoH = 315, gap = 20;
-const startX = 1200 - 48 - (photoW * 2 + gap);
-const photos = await Promise.all(
-  ogPhotos.map(async (p, i) => ({
-    input: await sharp(p).resize(photoW, photoH, { fit: 'cover', position: 'top' })
-      .composite([{ input: Buffer.from(`<svg width="${photoW}" height="${photoH}"><rect width="${photoW}" height="${photoH}" rx="14" fill="#fff"/></svg>`), blend: 'dest-in' }])
-      .png().toBuffer(),
-    left: startX + i * (photoW + gap),
-    top: Math.round((630 - photoH) / 2) + (i === 0 ? -20 : 20),
-  }))
-);
-const ogText = Buffer.from(`
-<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-  <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#3A57C4"/><stop offset="1" stop-color="#5FCFE3"/></linearGradient></defs>
-  <rect width="1200" height="630" fill="#FAF8F5"/>
-  <rect x="0" y="0" width="1200" height="8" fill="url(#g)"/>
-  <text x="56" y="110" font-family="Georgia, serif" font-size="30" fill="#14161C" font-weight="700">BezModelky<tspan fill="#3A57C4">.cz</tspan></text>
-  <text x="56" y="250" font-family="Georgia, serif" font-size="54" fill="#14161C">AI fotky oblečení</text>
-  <text x="56" y="320" font-family="Georgia, serif" font-size="54" fill="#14161C" font-style="italic">pro e-shopy</text>
-  <text x="56" y="400" font-family="Arial, sans-serif" font-size="24" fill="#5B5F6B">Z ramínka na modelku do 24 hodin.</text>
-  <text x="56" y="436" font-family="Arial, sans-serif" font-size="24" fill="#5B5F6B">Bez ateliéru, bez fotografa.</text>
-  <text x="56" y="540" font-family="Arial, sans-serif" font-size="22" fill="#14161C" font-weight="700">Od 69 Kč za fotku · 1 fotka zdarma</text>
-</svg>`);
-await sharp(ogText).composite(photos).jpeg({ quality: 82, mozjpeg: true }).toFile('og-image.jpg');
+// OG obrázky (náhled při sdílení) ve všech jazycích generuje scripts/og-images.mjs
 
 // Logo pro strukturovaná data (Google vyžaduje rastrový formát)
 await sharp('logo.png').resize(600).png({ compressionLevel: 9, palette: true }).toFile(`${OUT}/logo-600.png`);

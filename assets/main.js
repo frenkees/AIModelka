@@ -1,6 +1,21 @@
 (() => {
     const $ = (sel, root = document) => root.querySelector(sel);
     const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+    // Překlad textů ve skriptu (klíčem je čeština, slovník vkládá build do cizojazyčných stránek)
+    let dict = {};
+    try { dict = JSON.parse($('#i18n')?.textContent || '{}'); } catch {}
+    const t = (text) => dict[text] ?? text;
+
+    // Přepínač jazyka: zapamatuje volbu (úvodní stránka pak nepřesměrovává podle prohlížeče)
+    $$('.lang').forEach((menu) => {
+        $$('a[data-lang]', menu).forEach((a) => a.addEventListener('click', () => {
+            document.cookie = `lang=${a.dataset.lang}; path=/; max-age=31536000; samesite=lax`;
+        }));
+        document.addEventListener('click', (e) => { if (!menu.contains(e.target)) menu.open = false; });
+        menu.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menu.open) { menu.open = false; $('summary', menu).focus(); }
+        });
+    });
 
     // Header: pozadí po odscrollování
     const header = $('#site-header');
@@ -14,7 +29,7 @@
     const setMenu = (open) => {
         mobileMenu.classList.toggle('hidden', !open);
         menuBtn.setAttribute('aria-expanded', open);
-        menuBtn.setAttribute('aria-label', open ? 'Zavřít menu' : 'Otevřít menu');
+        menuBtn.setAttribute('aria-label', open ? t('Zavřít menu') : t('Otevřít menu'));
         if (open) header.setAttribute('data-scrolled', '');
         else onScroll();
     };
